@@ -372,6 +372,7 @@
   .trusted-by {
     padding: 3rem 0;
     background-color: var(--color-light-bg);
+    text-align: center;
   }
   
   .trusted-text {
