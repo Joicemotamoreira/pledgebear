@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PledgeBear - Friendly Support, Made Simple</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <!-- Navegação -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <div class="logo" onclick="scrollToSection('home')">
+        <img src="images/logo (1).png" alt="PledgeBear Logo">
+      </div>
+      
+      <div class="nav-links">
+        <button onclick="scrollToSection('how-it-works')">How It Works</button>
+        <button onclick="scrollToSection('features')">Features</button>
+        <button onclick="scrollToSection('testimonials')">Testimonials</button>
+        <button class="bear-button primary" onclick="scrollToSection('get-started')">
+          Get Started
+        </button>
+      </div>
+      
+      <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+    
+    <!-- Menu Mobile -->
+    <div class="mobile-menu" id="mobile-menu">
+      <div class="mobile-links">
+        <button onclick="scrollToSection('how-it-works')">How It Works</button>
+        <button onclick="scrollToSection('features')">Features</button>
+        <button onclick="scrollToSection('testimonials')">Testimonials</button>
+        <button class="bear-button primary full-width" onclick="scrollToSection('get-started')">
+          Get Started
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text animate" data-animation="slide-in-left">
+          <h1>Let Your Supporters <br><span class="highlight">Show the Love</span></h1>
+          <p>Easily accept tips, donations, or recurring contributions — no tech skills required. PledgeBear makes supporter love simple.</p>
+          <div class="button-group">
+            <button class="bear-button primary lg" onclick="scrollToSection('get-started')">
+              Start Accepting Contributions
+            </button>
+            <button class="bear-button secondary lg" onclick="scrollToSection('how-it-works')">
+              See How It Works
+            </button>
+          </div>
+        </div>
+        
+        <div class="hero-image animate" data-animation="fade-in" data-delay="600">
+          <div class="bear-animation">
+            <div class="bear-image">
+              <!-- SVG bear illustration would go here -->
+              <img src="images/PledgeBear (1).png" alt="Bear with donations">
+            </div>
+          </div>
+          <div class="bg-blob pink"></div>
+          <div class="bg-blob orange"></div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="wave-divider">
+      <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="wave-fill"></path>
+      </svg>
+    </div>
+  </section>
+
+<!-- Seção de Exemplos -->
+<section class="examples-grid">
+  <div class="container">
+    <div class="section-header animate" data-animation="fade-in">
+      <h2>Inspiring User Pages</h2>
+      <p>See how creators and organizations are using PledgeBear to connect with their supporters</p>
+    </div>
+
+    <div class="grid-container animate" data-animation="fade-in" data-delay="200">
+      <!-- Card 1 -->
+      <div class="example-card">
+        <div class="example-preview">
+          <img src="images/cooking.png" alt="Artist page example">
+          <div class="example-badge">Food Bloggers</div>
+        </div>
+        <div class="example-content">
+          <h3>Juliana's Recipes</h3>
+          <p>Monthly subscribers get exclusive recipes and behind-the-scenes peeks into my kitchen.</p>
+          <div class="example-stats">
+            <div class="stat">
+              <i class="fas fa-users"></i>
+              <span>248 supporters</span>
+            </div>
+            <div class="stat">
+              <i class="fas fa-hand-holding-heart"></i>
+              <span>$4,200/mo</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="example-card">
+        <div class="example-preview">
+          <img src="images/music.png" alt="Podcast page example">
+          <div class="example-badge">Music Artist</div>
+        </div>
+        <div class="example-content">
+          <h3>Busker Beat</h3>
+          <p>Real Music, Real People. From Sidewalk Songs to Big Dreams!</p>
+          <div class="example-stats">
+            <div class="stat">
+              <i class="fas fa-users"></i>
+              <span>763 supporters</span>
+            </div>
+            <div class="stat">
+              <i class="fas fa-hand-holding-heart"></i>
+              <span>$3,500/mo</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="example-card">
+        <div class="example-preview">
+          <img src="images/player.png" alt="Charity page example">
+          <div class="example-badge">Sports Club</div>
+        </div>
+        <div class="example-content">
+          <h3>Football Club</h3>
+          <p>Your donation helps fund equipment, facilities, and youth development.</p>
+          <div class="example-stats">
+            <div class="stat">
+              <i class="fas fa-users"></i>
+              <span>1,287 supporters</span>
+            </div>
+            <div class="stat">
+              <i class="fas fa-hand-holding-heart"></i>
+              <span>$7,850/mo</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+     
+
+    </div>
+  </div>
+</section>
+
+
+  <!-- Trusted By Section -->
+  <section class="trusted-by">
+    <div class="container">
+      <div class="animate" data-animation="fade-in">
+        <p class="trusted-text">Trusted by creators and organizations worldwide</p>
+        <div class="trusted-icons">
+          <div class="trusted-icon"><i class="fab fa-youtube"></i></div>
+          <div class="trusted-icon"><i class="fas fa-podcast"></i></div>
+          <div class="trusted-icon"><i class="fas fa-newspaper"></i></div>
+          <div class="trusted-icon"><i class="fas fa-palette"></i></div>
+          <div class="trusted-icon"><i class="fas fa-hand-holding-heart"></i></div>
+          <div class="trusted-icon"><i class="fas fa-users"></i></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section id="how-it-works" class="how-it-works">
+    <div class="container">
+      <div class="section-header animate" data-animation="fade-in">
+        <h2>How It Works</h2>
+        <p>Setting up your supporter page is quick and easy.<br>Follow these simple steps to start accepting contributions.</p>
+      </div>
+      
+      <div class="steps">
+        <div class="step animate" data-animation="slide-in-left" data-delay="100">
+          <div class="step-icon">
+            <i class="fas fa-pencil-alt"></i>
+          </div>
+          <h3>1. Create Your Page</h3>
+          <p>Set up a personalized PledgeBear page in minutes. No coding required—just add your details and customize.</p>
+          <div class="step-image">
+            <img src="images/bear01.png" alt="Create your page">
+          </div>
+        </div>
+        
+        <div class="step animate" data-animation="slide-in-left" data-delay="300">
+          <div class="step-icon orange">
+            <i class="fas fa-share-alt"></i>
+          </div>
+          <h3>2. Share the Link</h3>
+          <p>Add it to your social media, website, or newsletter — wherever your people are. One link for all platforms.</p>
+          <div class="step-image">
+            <img src="images/bear02.png" alt="Share the link">
+          </div>
+        </div>
+        
+        <div class="step animate" data-animation="slide-in-left" data-delay="500">
+          <div class="step-icon navy">
+            <i class="fas fa-donate"></i>
+          </div>
+          <h3>3. Get Pledges</h3>
+          <p>Supporters send one-time or recurring contributions directly to you. Track everything in your dashboard.</p>
+          <div class="step-image">
+            <img src="images/bear03.png" alt="Get pledges">
+          </div>
+        </div>
+      </div>
+      
+      <div class="section-cta animate" data-animation="fade-in" data-delay="700">
+        <button class="bear-button primary lg" onclick="scrollToSection('get-started')">
+          <i class="fas fa-arrow-right"></i>
+          Get Started Now
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="features">
+    <div class="container">
+      <div class="section-header animate" data-animation="fade-in">
+        <h2>Why PledgeBear?</h2>
+        <p>The friendliest way to accept contributions from your supporters,<br>with features that make you and your community smile.</p>
+      </div>
+      
+      <div class="feature-grid">
+        <!-- Feature cards would be dynamically generated in a real app -->
+        <div class="feature animate" data-animation="fade-in">
+          <div class="feature-icon pink">
+            <i class="fas fa-bolt"></i>
+          </div>
+          <h3>Fast Setup</h3>
+          <p>Create your page in less than 5 minutes with our intuitive setup wizard. No technical experience needed.</p>
+        </div>
+        
+        <div class="feature animate" data-animation="fade-in" data-delay="100">
+          <div class="feature-icon orange">
+            <i class="fas fa-percentage"></i>
+          </div>
+          <h3>Low Fees</h3>
+          <p>Keep more of what you earn with our industry-leading low fees. Transparent pricing with no surprises.</p>
+        </div>
+        <div class="feature animate" data-animation="fade-in" data-delay="200">
+          <div class="feature-icon navy">
+            <i class="fas fa-sliders-h"></i>
+          </div>
+          <h3>Flexible Contributions</h3>
+          <p>One-time tips, monthly memberships, or custom amounts—let your supporters choose how they help.</p>
+        </div>
+        <div class="feature animate" data-animation="fade-in" data-delay="300">
+          <div class="feature-icon pink">
+            <i class="fas fa-money-bill-wave"></i>
+          </div>
+          <h3>Direct Payouts</h3>
+          <p>Get paid directly to your bank account on your schedule—weekly, bi-weekly, or monthly.</p>
+        </div>
+        <div class="feature animate" data-animation="fade-in" data-delay="400">
+          <div class="feature-icon orange">
+            <i class="fab fa-stripe"></i>
+          </div>
+          <h3>Stripe-powered</h3>
+          <p>Process payments securely with industry-leading Stripe technology, trusted worldwide.</p>
+        </div>
+        <div class="feature animate" data-animation="fade-in" data-delay="500">
+          <div class="feature-icon navy">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h3>Secure & Transparent</h3>
+          <p>ISO 27001 & SOC 2 Type II certified. We take security seriously, so you don't have to worry.</p>
+        </div>
+        
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Perfect For Section -->
+  <section class="perfect-for">
+    <div class="container">
+      <div class="section-header animate" data-animation="fade-in">
+        <h2>Perfect For</h2>
+      </div>
+      
+      <div class="audience-grid">
+        <div class="audience-card animate" data-animation="slide-in-right">
+          <div class="audience-icon">
+            <i class="fas fa-palette"></i>
+          </div>
+          <h3>Creators</h3>
+          <p>Artists, writers, musicians, and creators of all kinds.</p>
+          <div class="audience-bear">
+            <img src="images/creator-bear.svg" alt="Creator Bear">
+          </div>
+        </div>
+        <div class="audience-card animate" data-animation="slide-in-right" data-delay="150">
+          <div class="audience-icon">
+            <i class="fas fa-newspaper"></i>
+          </div>
+          <h3>Publishers</h3>
+          <p>Bloggers, newsletters, podcasts, and independent media.</p>
+          <div class="audience-bear">
+            <img src="images/publisher-bear.svg" alt="Publisher Bear">
+          </div>
+        </div>
+        <div class="audience-card animate" data-animation="slide-in-right" data-delay="300">
+          <div class="audience-icon">
+            <i class="fas fa-heart"></i>
+          </div>
+          <h3>Charities</h3>
+          <p>Non-profits, causes, and community fundraisers.</p>
+          <div class="audience-bear">
+            <img src="images/charity-bear.svg" alt="Charity Bear">
+          </div>
+        </div>
+        <div class="audience-card animate" data-animation="slide-in-right" data-delay="450">
+          <div class="audience-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <h3>Communities</h3>
+          <p>Online groups, forums, and communities with shared interests.</p>
+          <div class="audience-bear">
+            <img src="images/community-bear.svg" alt="Community Bear">
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials" class="testimonials">
+    <div class="container">
+      <div class="section-header animate" data-animation="fade-in">
+        <h2>What People Are Saying</h2>
+        <p>Hear from creators and organizations already using PledgeBear</p>
+      </div>
+      
+      <div class="testimonial-grid">
+        <div class="testimonial animate" data-animation="fade-in">
+          <div class="quote-icon">
+            <i class="fas fa-quote-left"></i>
+          </div>
+          <p class="quote-text">PledgeBear made it easy for my readers to support me — I earned more in my first month than 6 months on ads!</p>
+          <div class="testimonial-author">
+            <div class="author-icon">
+              <i class="fas fa-user"></i>
+            </div>
+            <div class="author-info">
+              <h4>Indie Journalist</h4>
+              <p>United Kingdom</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial animate" data-animation="fade-in" data-delay="150">
+          <div class="quote-icon">
+            <i class="fas fa-quote-left"></i>
+          </div>
+          <p class="quote-text">Simple, cute, and it works. Love that I can send thank-you notes automatically to all my supporters.</p>
+          <div class="testimonial-author">
+            <div class="author-icon orange">
+              <i class="fas fa-microphone"></i>
+            </div>
+            <div class="author-info">
+              <h4>Community Podcast Host</h4>
+              <p>United States</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial animate" data-animation="fade-in" data-delay="300">
+          <div class="quote-icon">
+            <i class="fas fa-quote-left"></i>
+          </div>
+          <p class="quote-text">Our non-profit switched to PledgeBear and our monthly donations increased by 35%. The cute branding really appeals to our supporters!</p>
+          <div class="testimonial-author">
+            <div class="author-icon navy">
+              <i class="fas fa-hand-holding-heart"></i>
+            </div>
+            <div class="author-info">
+              <h4>Environmental Charity</h4>
+              <p>Canada</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial animate" data-animation="fade-in" data-delay="450">
+          <div class="quote-icon">
+            <i class="fas fa-quote-left"></i>
+          </div>
+          <p class="quote-text">The dashboard is so easy to use and the payout process is seamless. My art community loves supporting through PledgeBear!</p>
+          <div class="testimonial-author">
+            <div class="author-icon pink">
+              <i class="fas fa-paint-brush"></i>
+            </div>
+            <div class="author-info">
+              <h4>Digital Artist</h4>
+              <p>Japan</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Get Started Section -->
+  <section id="get-started" class="get-started">
+    <div class="container">
+      <div class="animate" data-animation="fade-in">
+        <h2>Join the Movement</h2>
+        <p>Join hundreds of creators and causes already using PledgeBear to connect with their supporters and fund what matters.</p>
+        
+        <div class="signup-form animate" data-animation="slide-up" data-delay="200">
+          <h3>Create Your PledgeBear Page</h3>
+          
+          <form id="signup-form">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" placeholder="Jane Smith" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" placeholder="jane@example.com" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="page-name">Page Name</label>
+              <input type="text" id="page-name" placeholder="My Creative Project" required>
+            </div>
+            
+            <button type="submit" class="form-button">Create My Page</button>
+          </form>
+        </div>
+        
+        <p class="login-link">Already have an account? <a href="#">Log in</a></p>
+      </div>
+    </div>
+    
+    <div class="bear-corner bottom-left"></div>
+    <div class="bear-corner top-right"></div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="images/logo (1).png" alt="PledgeBear Logo">
+          </div>
+          <p>PledgeBear helps creators and causes accept contributions from their supporters in a friendly, simple way.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><button onclick="scrollToSection('how-it-works')">How It Works</button></li>
+            <li><button onclick="scrollToSection('features')">Features</button></li>
+            <li><button onclick="scrollToSection('testimonials')">Testimonials</button></li>
+            <li><a href="#">Pricing</a></li>
+            <li><a href="#">Blog</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-links">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>© 2025 PledgeBear.com • Powered by Flip-Pay</p>
+        <div class="certifications">
+          <span>ISO 27001</span>
+          <span>•</span>
+          <span>SOC 2 Type II</span>
+          <span>•</span>
+          <span>Stripe Verified</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
