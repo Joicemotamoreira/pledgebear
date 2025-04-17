@@ -277,6 +277,10 @@
     font-size: 2rem;
     margin-bottom: 1rem;
   }
+  .pricing-section a {
+    text-decoration: none;
+  }
+
   /* Examples Section */
   .examples-grid {
     padding: 5rem 0;
