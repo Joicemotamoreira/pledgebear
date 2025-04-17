@@ -441,7 +441,7 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    background-color: white;
+    background-color: #FDFDFD;
     padding: 1.5rem;
     border-radius: 1rem;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
@@ -963,7 +963,6 @@
     .button-group {
       flex-direction: row;
     }
-    
     .feature-grid {
       grid-template-columns: repeat(2, 1fr);
     }
@@ -1010,7 +1009,7 @@
     }
     
     .steps {
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(2, 1fr);
     }
     .step p {
       min-height: 154px;
@@ -1064,5 +1063,8 @@
     
     .hero h1 {
       font-size: 3.5rem;
+    }
+    .steps {
+      grid-template-columns: repeat(4, 1fr);
     }
   }
