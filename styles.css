@@ -485,7 +485,6 @@
   .step p {
     color: rgba(29, 53, 87, 0.7);
     margin-bottom: 1.5rem;
-    min-height: 154px;
   }
   
   .step-image {
@@ -610,7 +609,6 @@
   .audience-card p {
     color: rgba(29, 53, 87, 0.7);
     margin-bottom: 1rem;
-    min-height: 157px;
   }
   
   .audience-bear {
@@ -931,7 +929,6 @@
   }
 
 
-/* Responsividade para o grid */
 @media (max-width: 1024px) {
   .grid-container {
     grid-template-columns: repeat(2, 1fr);
@@ -1015,6 +1012,9 @@
     .steps {
       grid-template-columns: repeat(4, 1fr);
     }
+    .step p {
+      min-height: 154px;
+    }
     
     .section-header h2 {
       font-size: 2.5rem;
@@ -1056,6 +1056,10 @@
     
     .audience-grid {
       grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .audience-card p {
+      min-height: 157px;
     }
     
     .hero h1 {
