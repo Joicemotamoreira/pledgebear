@@ -43,6 +43,12 @@
   img {
     max-width: 100%;
   }
+  .navy {
+    color: var(--color-navy);
+  }
+  .orange {
+    color: var(--color-orange);
+  }
   
   /* Animation */
   @keyframes float {
@@ -484,7 +490,6 @@
   
   .step-image {
     width: 150px;
-    height: 12rem;
   }
   
   .section-cta {
@@ -785,24 +790,6 @@
   
   .login-link a:hover {
     text-decoration: underline;
-  }
-  
-  .bear-corner {
-    position: absolute;
-    width: 9rem;
-    height: 9rem;
-    opacity: 0.2;
-  }
-  
-  .bear-corner.bottom-left {
-    bottom: 0;
-    left: 0;
-  }
-  
-  .bear-corner.top-right {
-    top: 0;
-    right: 0;
-    transform: rotate(180deg);
   }
   
   /* Footer */
