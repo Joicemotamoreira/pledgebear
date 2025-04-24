@@ -337,7 +337,7 @@
 
         .social-buttons {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
             gap: 1rem;
             margin-bottom: 1rem;
         }
@@ -1348,20 +1348,12 @@
                             Google
                         </button>
                         <button class="social-button">
-                            <i class="fab fa-linkedin"></i>
-                            LinkedIn
-                        </button>
-                        <button class="social-button">
                             <i class="fab fa-facebook"></i>
                             Facebook
                         </button>
                         <button class="social-button">
                             <i class="fab fa-apple"></i>
                             Apple
-                        </button>
-                        <button class="social-button">
-                            <i class="fab fa-github"></i>
-                            GitHub
                         </button>
                         <button class="social-button">
                             <i class="fab fa-twitter"></i>
@@ -1528,7 +1520,6 @@
                                     <input type="url" id="twitter" placeholder="X (Twitter) URL">
                                     <input type="url" id="bluesky" placeholder="BlueSky URL">
                                     <input type="url" id="threads" placeholder="Threads URL">
-                                    <input type="url" id="linkedin" placeholder="LinkedIn URL">
                                 </div>
                             </div>
                         </div>
@@ -1984,7 +1975,6 @@
         const twitter = document.getElementById('twitter');
         const bluesky = document.getElementById('bluesky');
         const threads = document.getElementById('threads');
-        const linkedin = document.getElementById('linkedin');
 
         previewCauseName.textContent = causeName.value || 'Your Cause Name';
         previewHeadline.textContent = headlineText.value || 'Join us today and support our cause';
@@ -2030,10 +2020,6 @@
 
         threads.addEventListener('input', () => {
             previewImageText.textContent = threads.value || 'Threads URL';
-        });
-
-        linkedin.addEventListener('input', () => {
-            previewImageText.textContent = linkedin.value || 'LinkedIn URL';
         });
 
         // Step 3: Email validation
