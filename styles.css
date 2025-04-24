@@ -724,8 +724,11 @@
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     max-width: 32rem;
     margin: 0 auto 2rem auto;
+    text-align: center;
   }
-  
+  #signup-form {
+    margin-top: 25px;
+  }
   .signup-form h3 {
     text-align: center;
     font-size: 1.5rem;
@@ -772,13 +775,17 @@
     font-family: var(--font-nunito);
     margin-top: 0.5rem;
     box-shadow: 0 4px 14px rgba(255, 130, 67, 0.2);
+    text-align: center;
   }
   
   .form-button:hover {
     background-color: #ff6a20;
     box-shadow: 0 6px 20px rgba(255, 130, 67, 0.3);
   }
-  
+  .signup-form a {
+    text-decoration: none;
+    color: white;
+  }
   .login-link {
     text-align: center;
     color: rgba(29, 53, 87, 0.6);
