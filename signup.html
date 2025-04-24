@@ -1651,6 +1651,26 @@
         .copy-embed-button {
             display: none;
         }
+
+        .form-heading {
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--color-light-bg);
+            padding-bottom: 0.5rem;
+        }
+
+        .form-heading h3 {
+            color: var(--color-orange);
+            font-size: 1.1rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 0;
+        }
+
+        .form-heading h3 i {
+            font-size: 1.1rem;
+        }
     </style>
 </head>
 <body>
@@ -1803,15 +1823,11 @@
                 <div class="setup-container">
                     <!-- Left Column: Setup Form -->
                     <div class="setup-form">
-                        <div class="setup-tabs">
-                            <button class="tab-button active" data-tab="design">
-                                <i class="fas fa-paint-brush"></i>
-                                Design
-                            </button>
+                        <div class="form-heading">
+                            <h3><i class="fas fa-paint-brush"></i> Design</h3>
                         </div>
 
-                        <!-- Design Tab Content -->
-                        <div class="tab-content active" id="designTab">
+                        <div class="form-content">
                             <div class="form-group">
                                 <label for="pageImage">Add Image</label>
                                 <div class="image-upload-container">
