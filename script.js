@@ -1,3 +1,7 @@
+function redirectToSignUp() {
+  window.location.href='https://pledgebear-test.netlify.app/signup';
+}
+
 // Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', () => {
     // Track scrolling for navbar effects
