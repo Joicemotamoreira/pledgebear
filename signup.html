@@ -1640,6 +1640,17 @@
             margin-bottom: 2rem;
             animation: fadeIn 0.3s ease-out;
         }
+
+        .share-grid,
+        .share-button,
+        .qr-code-container,
+        .qr-code-placeholder,
+        .download-qr-button,
+        .embed-code-container,
+        .embed-code,
+        .copy-embed-button {
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -1797,10 +1808,6 @@
                                 <i class="fas fa-paint-brush"></i>
                                 Design
                             </button>
-                            <button class="tab-button" data-tab="share">
-                                <i class="fas fa-share-alt"></i>
-                                Share
-                            </button>
                         </div>
 
                         <!-- Design Tab Content -->
@@ -1892,60 +1899,6 @@
                                         <input type="url" id="bluesky" placeholder="BlueSky URL">
                                         <input type="url" id="threads" placeholder="Threads URL">
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Share Tab Content -->
-                        <div class="tab-content" id="shareTab">
-                            <div class="form-group">
-                                <label>Share Your Page</label>
-                                <div class="share-grid">
-                                    <button class="share-button copy-link">
-                                        <i class="fas fa-link"></i>
-                                        Copy Page Link
-                                    </button>
-                                    <button class="share-button">
-                                        <i class="fab fa-facebook"></i>
-                                        Share on Facebook
-                                    </button>
-                                    <button class="share-button">
-                                        <i class="fab fa-twitter"></i>
-                                        Share on Twitter
-                                    </button>
-                                    <button class="share-button">
-                                        <i class="fab fa-instagram"></i>
-                                        Share on Instagram
-                                    </button>
-                                    <button class="share-button">
-                                        <i class="fab fa-whatsapp"></i>
-                                        Share on WhatsApp
-                                    </button>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label>QR Code</label>
-                                <div class="qr-code-container">
-                                    <div class="qr-code-placeholder">
-                                        <i class="fas fa-qrcode"></i>
-                                        <span>Your page QR code</span>
-                                    </div>
-                                    <button class="download-qr-button">
-                                        <i class="fas fa-download"></i>
-                                        Download QR Code
-                                    </button>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label>Embed on Website</label>
-                                <div class="embed-code-container">
-                                    <textarea readonly class="embed-code" rows="3"><iframe src="your-page-url" width="100%" height="600" frameborder="0"></iframe></textarea>
-                                    <button class="copy-embed-button">
-                                        <i class="fas fa-copy"></i>
-                                        Copy Embed Code
-                                    </button>
                                 </div>
                             </div>
                         </div>
