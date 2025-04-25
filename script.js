@@ -54,11 +54,8 @@ usernameInput.addEventListener('input', (e) => {
 // Step 1: Next button click handler
 nextButton.addEventListener('click', () => {
     if (!nextButton.disabled) {
-        // Hide Step 1 and show Step 2
         step1.classList.remove('active');
         step2.classList.add('active');
-        
-        // Update steps indicator
         document.querySelectorAll('.step')[0].classList.add('completed', 'inactive');
         document.querySelectorAll('.step')[1].classList.remove('inactive');
     }
@@ -67,11 +64,8 @@ nextButton.addEventListener('click', () => {
 // Add Enter key handler for username input
 usernameInput.addEventListener('keypress', (e) => {
     if (e.key === 'Enter' && !nextButton.disabled) {
-        // Hide Step 1 and show Step 2
         step1.classList.remove('active');
         step2.classList.add('active');
-        
-        // Update steps indicator
         document.querySelectorAll('.step')[0].classList.add('completed', 'inactive');
         document.querySelectorAll('.step')[1].classList.remove('inactive');
     }
@@ -122,7 +116,6 @@ emailInput.addEventListener('input', () => {
     } else {
         emailValidation.textContent = '';
         emailContainer.classList.remove('error');
-        // Show recaptcha when email is valid
         recaptchaContainer.style.display = 'block';
     }
 });
@@ -150,7 +143,6 @@ passwordInput.addEventListener('input', () => {
     const password = passwordInput.value;
     updatePasswordStrength(password);
     
-    // Enable continue button only if both password and email are valid and recaptcha is checked
     const isValidEmail = emailRegex.test(emailInput.value.trim());
     const isEmailRegistered = registeredEmails.includes(emailInput.value.trim());
     const recaptchaChecked = document.getElementById('recaptcha').checked;
@@ -176,11 +168,8 @@ togglePassword.addEventListener('click', () => {
 
 // Step 2: Back button handler
 backButton.addEventListener('click', () => {
-    // Hide Step 2 and show Step 1
     step2.classList.remove('active');
     step1.classList.add('active');
-    
-    // Update steps indicator
     document.querySelectorAll('.step')[0].classList.remove('completed', 'inactive');
     document.querySelectorAll('.step')[1].classList.add('inactive');
 });
@@ -206,27 +195,22 @@ step2Button.addEventListener('click', () => {
         return;
     }
 
-    // If verification code is not visible yet, show it
     if (verificationCode.style.display !== 'block') {
         verificationCode.style.display = 'block';
         verificationMessage.style.display = 'block';
         step2Button.textContent = 'Continue to Step 3';
-        step2Button.disabled = true; // Disable button until code is entered
+        step2Button.disabled = true;
         return;
     }
 
-    // If verification code is visible, check if it's valid
     const code = document.getElementById('code').value;
     if (code.length !== 6) {
         alert('Please enter the 6-digit verification code');
         return;
     }
 
-    // If all validations pass, proceed to Step 3
     step2.classList.remove('active');
     step3.classList.add('active');
-    
-    // Update steps indicator
     document.querySelectorAll('.step')[1].classList.add('completed', 'inactive');
     document.querySelectorAll('.step')[2].classList.remove('inactive');
 });
@@ -234,7 +218,6 @@ step2Button.addEventListener('click', () => {
 // Step 2: Verification code input handler
 document.getElementById('code').addEventListener('input', (e) => {
     const code = e.target.value;
-    // Enable next button only when code is 6 digits
     step2Button.disabled = code.length !== 6;
 });
 
@@ -272,17 +255,13 @@ document.querySelectorAll('.social-button').forEach(button => {
 signInLink.addEventListener('click', (e) => {
     e.preventDefault();
     alert('Redirecting to sign in page...');
-    // window.location.href = 'signin.html'; // Uncomment this line when you have a sign in page
 });
 
 // Step 3: Back button handler
 const backButtonStep3 = document.getElementById('backButtonStep3');
 backButtonStep3.addEventListener('click', () => {
-    // Hide Step 3 and show Step 2
     step3.classList.remove('active');
     step2.classList.add('active');
-    
-    // Update steps indicator
     document.querySelectorAll('.step')[2].classList.add('inactive');
     document.querySelectorAll('.step')[1].classList.remove('inactive');
 });
@@ -300,7 +279,6 @@ imageUpload.addEventListener('change', () => {
     if (file) {
         const reader = new FileReader();
         reader.onload = function(e) {
-            // Update both preview images
             imagePreview.src = e.target.result;
             previewImage.src = e.target.result;
             imagePreview.style.display = 'block';
@@ -327,7 +305,6 @@ imageUploadContainer.addEventListener('drop', (e) => {
     if (file) {
         const reader = new FileReader();
         reader.onload = function(e) {
-            // Update both preview images
             imagePreview.src = e.target.result;
             previewImage.src = e.target.result;
             imagePreview.style.display = 'block';
@@ -339,7 +316,6 @@ imageUploadContainer.addEventListener('drop', (e) => {
 
 // Step 3: Preview content handler
 const causeName = document.getElementById('causeName');
-const websiteLink = document.getElementById('websiteLink');
 const headlineText = document.getElementById('headlineText');
 const optionalText = document.getElementById('optionalText');
 const previewHeadline = document.getElementById('previewHeadline');
@@ -388,25 +364,6 @@ optionalText.addEventListener('input', () => {
     previewOptionalText.textContent = optionalText.value || '';
 });
 
-websiteLink.addEventListener('input', () => {
-    // Add website link to the preview content
-    const websiteLinkPreview = document.getElementById('previewWebsiteLink');
-    if (!websiteLinkPreview) {
-        const linkElement = document.createElement('a');
-        linkElement.id = 'previewWebsiteLink';
-        linkElement.className = 'preview-website-link';
-        linkElement.target = '_blank';
-        document.querySelector('.preview-content').insertBefore(
-            linkElement,
-            document.getElementById('previewHeadline')
-        );
-    }
-    const link = document.getElementById('previewWebsiteLink');
-    link.href = websiteLink.value;
-    link.textContent = websiteLink.value || 'Website Link';
-    link.style.display = websiteLink.value ? 'block' : 'none';
-});
-
 // Step 3: Title prefix functionality
 const titlePrefix = document.getElementById('titlePrefix');
 const customTitlePrefix = document.getElementById('customTitlePrefix');
@@ -434,8 +391,11 @@ customTitlePrefix.addEventListener('input', function() {
 
 // Update preview title
 function updatePreviewTitle(prefix) {
-    const recipientName = document.getElementById('recipientName').value || '[Recipient Name]';
-    previewTitle.textContent = `${prefix} ${recipientName}`;
+    const causeName = document.getElementById('causeName').value || 'Cause Name';
+    const previewMainTitle = document.getElementById('previewMainTitle');
+    if (previewMainTitle) {
+        previewMainTitle.innerHTML = `${prefix} <span id="previewCauseNameRight">${causeName}</span>`;
+    }
 }
 
 // Initialize preview title
@@ -481,9 +441,7 @@ publishButton.addEventListener('click', () => {
         return;
     }
 
-    // Here you would typically send the data to your server
     alert('Page published successfully!');
-    // window.location.href = 'success.html'; // Uncomment this line when you have a success page
 });
 
 // Step 2: Password strength calculation
@@ -514,317 +472,8 @@ function updatePasswordStrength(password) {
 // Add recaptcha click handler
 document.querySelector('.recaptcha-container').addEventListener('click', function(e) {
     const checkbox = document.getElementById('recaptcha');
-    if (e.target !== checkbox) { // Evita duplo toggle quando clica diretamente no checkbox
+    if (e.target !== checkbox) {
         checkbox.checked = !checkbox.checked;
-        // Dispara o evento change para manter a lógica existente
         checkbox.dispatchEvent(new Event('change'));
     }
-});
-
-document.addEventListener('DOMContentLoaded', function() {
-    // Debug log to confirm elements are found
-    const step1 = document.getElementById('step1');
-    const step2 = document.getElementById('step2');
-    const usernameInput = document.getElementById('username');
-    const usernameContainer = document.querySelector('.username-container');
-    const usernameValidation = document.querySelector('.username-validation');
-    const nextButton = document.querySelector('.next-button');
-
-    console.log('Elements found:', {
-        step1: !!step1,
-        step2: !!step2,
-        usernameInput: !!usernameInput,
-        usernameContainer: !!usernameContainer,
-        usernameValidation: !!usernameValidation,
-        nextButton: !!nextButton
-    });
-
-    // Simulated database of registered usernames
-    const registeredUsernames = ['john_doe', 'jane_smith', 'test_user'];
-
-    // Username validation pattern
-    const usernamePattern = /^[a-zA-Z0-9_]{3,20}$/;
-
-    function showUsernameError(message) {
-        usernameValidation.textContent = message;
-        usernameValidation.style.color = '#ff4444';
-        usernameContainer.classList.add('error');
-        usernameContainer.classList.remove('success');
-    }
-
-    function showUsernameSuccess(message) {
-        usernameValidation.textContent = message;
-        usernameValidation.style.color = '#4CAF50';
-        usernameContainer.classList.add('success');
-        usernameContainer.classList.remove('error');
-    }
-
-    // Email validation
-    const emailInput = document.getElementById('email');
-    const emailContainer = document.querySelector('.email-container');
-    const emailValidation = document.querySelector('.email-validation');
-    const recaptchaContainer = document.querySelector('.recaptcha-container');
-    const recaptchaCheckbox = document.getElementById('recaptcha');
-    const continueButton = document.querySelector('.continue-button');
-
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const registeredEmails = ['test@example.com', 'user@domain.com'];
-
-    function validateEmail() {
-        const email = emailInput.value.trim();
-        
-        if (email === '') {
-            emailValidation.textContent = 'Email is required';
-            emailValidation.style.color = '#ff4444';
-            emailContainer.classList.add('error');
-            emailContainer.classList.remove('success');
-            recaptchaContainer.style.display = 'none';
-            return false;
-        }
-
-        if (!emailPattern.test(email)) {
-            emailValidation.textContent = 'Please enter a valid email address';
-            emailValidation.style.color = '#ff4444';
-            emailContainer.classList.add('error');
-            emailContainer.classList.remove('success');
-            recaptchaContainer.style.display = 'none';
-            return false;
-        }
-
-        if (registeredEmails.includes(email)) {
-            emailValidation.textContent = 'This email is already registered';
-            emailValidation.style.color = '#ff4444';
-            emailContainer.classList.add('error');
-            emailContainer.classList.remove('success');
-            recaptchaContainer.style.display = 'none';
-            return false;
-        }
-
-        emailValidation.textContent = 'Email is valid';
-        emailValidation.style.color = '#4CAF50';
-        emailContainer.classList.add('success');
-        emailContainer.classList.remove('error');
-        recaptchaContainer.style.display = 'block';
-        return true;
-    }
-
-    // Password validation
-    const passwordInput = document.getElementById('password');
-    const passwordContainer = document.querySelector('.password-container');
-    const passwordValidation = document.querySelector('.password-validation');
-    const showPasswordToggle = document.querySelector('.show-password-toggle');
-
-    function validatePassword() {
-        const password = passwordInput.value;
-        
-        if (password.length < 8) {
-            passwordValidation.textContent = 'Password must be at least 8 characters long';
-            passwordValidation.style.color = '#ff4444';
-            passwordContainer.classList.add('error');
-            passwordContainer.classList.remove('success');
-            return false;
-        }
-
-        passwordValidation.textContent = 'Password is valid';
-        passwordValidation.style.color = '#4CAF50';
-        passwordContainer.classList.add('success');
-        passwordContainer.classList.remove('error');
-        return true;
-    }
-
-    // Event listeners
-    if (usernameInput) {
-        usernameInput.addEventListener('input', function() {
-            const username = this.value.trim();
-            
-            if (username === '') {
-                showUsernameError('Username is required');
-                nextButton.disabled = true;
-                return;
-            }
-
-            if (!usernamePattern.test(username)) {
-                showUsernameError('Username must be 3-20 characters and can only contain letters, numbers, and underscores');
-                nextButton.disabled = true;
-                return;
-            }
-
-            if (registeredUsernames.includes(username)) {
-                showUsernameError('This username is already taken');
-                nextButton.disabled = true;
-                return;
-            }
-
-            showUsernameSuccess('Username is available');
-            nextButton.disabled = false;
-        });
-
-        usernameInput.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter' && !nextButton.disabled) {
-                nextButton.click();
-            }
-        });
-    }
-
-    if (nextButton) {
-        nextButton.addEventListener('click', function() {
-            console.log('Next button clicked');
-            if (step1 && step2) {
-                step1.classList.remove('active');
-                step2.classList.add('active');
-            }
-        });
-    }
-
-    if (emailInput) {
-        emailInput.addEventListener('input', validateEmail);
-        emailInput.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter' && !continueButton.disabled) {
-                continueButton.click();
-            }
-        });
-    }
-
-    if (passwordInput) {
-        passwordInput.addEventListener('input', function() {
-            const isPasswordValid = validatePassword();
-            const isEmailValid = validateEmail();
-            const isRecaptchaChecked = recaptchaCheckbox.checked;
-            
-            continueButton.disabled = !(isPasswordValid && isEmailValid && isRecaptchaChecked);
-        });
-    }
-
-    if (showPasswordToggle) {
-        showPasswordToggle.addEventListener('click', function() {
-            const type = passwordInput.type === 'password' ? 'text' : 'password';
-            passwordInput.type = type;
-            this.innerHTML = type === 'password' ? '<i class="fas fa-eye"></i>' : '<i class="fas fa-eye-slash"></i>';
-        });
-    }
-
-    if (recaptchaCheckbox) {
-        recaptchaCheckbox.addEventListener('change', function() {
-            const isPasswordValid = validatePassword();
-            const isEmailValid = validateEmail();
-            
-            continueButton.disabled = !(isPasswordValid && isEmailValid && this.checked);
-        });
-    }
-
-    // Initialize button states
-    if (nextButton) {
-        nextButton.disabled = true;
-    }
-    if (continueButton) {
-        continueButton.disabled = true;
-    }
-});
-
-// Custom Select Dropdown Implementation
-function initializeCustomSelect() {
-    const selectContainer = document.querySelector('.custom-select-container');
-    const select = document.querySelector('.title-prefix-select');
-    const customOptions = document.createElement('div');
-    customOptions.className = 'custom-select-options';
-    
-    // Create custom options
-    const options = Array.from(select.options).map(option => ({
-        value: option.value,
-        text: option.text
-    }));
-
-    options.forEach(option => {
-        const optionElement = document.createElement('div');
-        optionElement.className = 'custom-select-option';
-        optionElement.textContent = option.text;
-        
-        if (option.value === select.value) {
-            optionElement.classList.add('selected');
-        }
-        
-        optionElement.addEventListener('click', () => {
-            // Update select value
-            select.value = option.value;
-            
-            // Update selected option styling
-            customOptions.querySelectorAll('.custom-select-option').forEach(opt => {
-                opt.classList.remove('selected');
-            });
-            optionElement.classList.add('selected');
-            
-            // Handle custom option
-            if (option.value === 'custom') {
-                customTitlePrefix.style.display = 'block';
-                updatePreviewTitle(customTitlePrefix.value || 'Donate to');
-            } else {
-                customTitlePrefix.style.display = 'none';
-                updatePreviewTitle(option.value);
-            }
-            
-            // Close dropdown
-            selectContainer.classList.remove('open');
-        });
-        
-        customOptions.appendChild(optionElement);
-    });
-    
-    selectContainer.appendChild(customOptions);
-    
-    // Toggle dropdown
-    select.addEventListener('click', (e) => {
-        e.stopPropagation();
-        selectContainer.classList.toggle('open');
-    });
-    
-    // Close dropdown when clicking outside
-    document.addEventListener('click', (e) => {
-        if (!selectContainer.contains(e.target)) {
-            selectContainer.classList.remove('open');
-        }
-    });
-}
-
-// Initialize custom select when DOM is loaded
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initializeCustomSelect);
-} else {
-    initializeCustomSelect();
-}
-
-// Title prefix functionality
-document.addEventListener('DOMContentLoaded', function() {
-    const titlePrefix = document.getElementById('titlePrefix');
-    const customTitlePrefix = document.getElementById('customTitlePrefix');
-
-    if (titlePrefix && customTitlePrefix) {
-        // Hide custom input initially
-        customTitlePrefix.style.display = 'none';
-
-        // Handle select change
-        titlePrefix.addEventListener('change', function() {
-            if (this.value === 'custom') {
-                customTitlePrefix.style.display = 'block';
-                updatePreviewTitle(customTitlePrefix.value || 'Donate to');
-            } else {
-                customTitlePrefix.style.display = 'none';
-                updatePreviewTitle(this.value);
-            }
-        });
-
-        // Handle custom input changes
-        customTitlePrefix.addEventListener('input', function() {
-            if (titlePrefix.value === 'custom') {
-                updatePreviewTitle(this.value || 'Donate to');
-            }
-        });
-    }
-});
-
-function updatePreviewTitle(prefix) {
-    const causeName = document.getElementById('causeName')?.value || 'Cause Name';
-    const previewMainTitle = document.getElementById('previewMainTitle');
-    if (previewMainTitle) {
-        previewMainTitle.innerHTML = `${prefix} <span id="previewCauseNameRight">${causeName}</span>`;
-    }
-} 
+}); 
