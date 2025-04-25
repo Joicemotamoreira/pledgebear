@@ -283,8 +283,8 @@ backButtonStep3.addEventListener('click', () => {
     step2.classList.add('active');
     
     // Update steps indicator
-    document.querySelectorAll('.step')[2].classList.remove('completed', 'inactive');
-    document.querySelectorAll('.step')[1].classList.add('inactive');
+    document.querySelectorAll('.step')[2].classList.add('inactive');
+    document.querySelectorAll('.step')[1].classList.remove('inactive');
 });
 
 // Step 3: Image upload handler
@@ -386,28 +386,50 @@ optionalText.addEventListener('input', () => {
 });
 
 // Step 3: Title prefix functionality
-const titlePrefix = document.getElementById('titlePrefix');
-const customTitlePrefix = document.getElementById('customTitlePrefix');
-const previewMainTitle = document.getElementById('previewMainTitle');
+document.addEventListener('DOMContentLoaded', () => {
+    const titlePrefix = document.getElementById('titlePrefix');
+    const customTitlePrefix = document.getElementById('customTitlePrefix');
+    const previewMainTitle = document.getElementById('previewMainTitle');
 
-titlePrefix.addEventListener('change', () => {
-    if (titlePrefix.value === 'custom') {
-        customTitlePrefix.style.display = 'block';
-        updatePreviewTitle(customTitlePrefix.value);
-    } else {
+    // Hide custom prefix input by default
+    if (customTitlePrefix) {
         customTitlePrefix.style.display = 'none';
-        updatePreviewTitle(titlePrefix.value);
+    }
+
+    if (titlePrefix) {
+        titlePrefix.addEventListener('change', () => {
+            if (customTitlePrefix) {
+                if (titlePrefix.value === 'custom') {
+                    customTitlePrefix.style.display = 'block';
+                    updatePreviewTitle(customTitlePrefix.value || 'Donate to');
+                } else {
+                    customTitlePrefix.style.display = 'none';
+                    updatePreviewTitle(titlePrefix.value);
+                }
+            }
+        });
+    }
+
+    if (customTitlePrefix) {
+        customTitlePrefix.addEventListener('input', () => {
+            if (titlePrefix && titlePrefix.value === 'custom') {
+                updatePreviewTitle(customTitlePrefix.value || 'Donate to');
+            }
+        });
+    }
+
+    function updatePreviewTitle(prefix) {
+        if (previewMainTitle) {
+            const causeNameValue = document.getElementById('causeName')?.value || 'Cause Name';
+            previewMainTitle.innerHTML = `${prefix} <span id="previewCauseNameRight">${causeNameValue}</span>`;
+        }
+    }
+
+    // Initialize with default value
+    if (titlePrefix && customTitlePrefix) {
+        updatePreviewTitle(titlePrefix.value === 'custom' ? (customTitlePrefix.value || 'Donate to') : titlePrefix.value);
     }
 });
-
-customTitlePrefix.addEventListener('input', () => {
-    updatePreviewTitle(customTitlePrefix.value);
-});
-
-function updatePreviewTitle(prefix) {
-    const causeName = document.getElementById('causeName').value || 'Cause Name';
-    previewMainTitle.innerHTML = `<span class="title-prefix">${prefix}</span> <span id="previewCauseNameRight">${causeName}</span>`;
-}
 
 // Step 3: Donation amount buttons
 const donationButtons = document.querySelectorAll('.donation-amount');
@@ -638,8 +660,8 @@ document.addEventListener('DOMContentLoaded', function() {
         nextButton.addEventListener('click', function() {
             console.log('Next button clicked');
             if (step1 && step2) {
-                step1.style.display = 'none';
-                step2.style.display = 'block';
+                step1.classList.remove('active');
+                step2.classList.add('active');
             }
         });
     }
