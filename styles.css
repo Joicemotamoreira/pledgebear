@@ -530,7 +530,7 @@ h1 {
 }
 
 .setup-form .form-group {
-    margin-bottom: 0.5rem;
+    margin-bottom: 1.0rem;
 }
 
 .setup-form label {
@@ -934,7 +934,7 @@ h1 {
 .custom-select-trigger {
     position: relative;
     width: 100%;
-    padding: 1rem;
+    padding: 8px;
     font-family: var(--font-nunito);
     font-size: 1rem;
     color: var(--color-navy);
@@ -998,12 +998,11 @@ h1 {
 .custom-option:hover,
 .custom-option:focus {
     background-color: var(--color-light-bg);
-    color: var(--color-orange);
 }
 
 .custom-option.selected {
-    background-color: var(--color-orange);
-    color: white;
+    background-color: var(--color-light-bg);
+    color: var(--color-orange);
     font-weight: 600;
 }
 
