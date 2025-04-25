@@ -345,9 +345,34 @@ const optionalText = document.getElementById('optionalText');
 const previewHeadline = document.getElementById('previewHeadline');
 const previewOptionalText = document.getElementById('previewOptionalText');
 
+// Donation amount inputs
+const donationAmount1 = document.getElementById('donationAmount1');
+const donationAmount2 = document.getElementById('donationAmount2');
+const donationAmount3 = document.getElementById('donationAmount3');
+const donationAmountButtons = document.querySelectorAll('.donation-grid .donation-amount:not(:last-child)');
+
+// Update donation amounts in preview
+function updateDonationAmounts() {
+    const amounts = [donationAmount1, donationAmount2, donationAmount3];
+    donationAmountButtons.forEach((button, index) => {
+        if (amounts[index]) {
+            const amountSpan = button.querySelector('.amount');
+            if (amountSpan) {
+                amountSpan.textContent = `$${amounts[index].value}`;
+            }
+        }
+    });
+}
+
+// Add event listeners for donation amount inputs
+[donationAmount1, donationAmount2, donationAmount3].forEach(input => {
+    input.addEventListener('input', updateDonationAmounts);
+});
+
 // Initialize preview content
 previewHeadline.textContent = headlineText.value || 'Join us today and support our cause';
 previewOptionalText.textContent = optionalText.value || '';
+updateDonationAmounts();
 
 // Update preview content on input
 causeName.addEventListener('input', () => {

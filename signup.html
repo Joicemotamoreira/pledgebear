@@ -211,6 +211,15 @@
                                 <textarea id="optionalText" rows="3"></textarea>
                             </div>
 
+                            <div class="form-group">
+                                <label>Donation Amounts</label>
+                                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;">
+                                    <input type="number" id="donationAmount1" value="10" min="1" class="donation-amount-input" placeholder="Amount 1">
+                                    <input type="number" id="donationAmount2" value="15" min="1" class="donation-amount-input" placeholder="Amount 2">
+                                    <input type="number" id="donationAmount3" value="20" min="1" class="donation-amount-input" placeholder="Amount 3">
+                                </div>
+                            </div>
+
                             <button id="publishButton" class="next-button">
                                 Publish Page
                             </button>
