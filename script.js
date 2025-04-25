@@ -342,20 +342,25 @@ const causeName = document.getElementById('causeName');
 const websiteLink = document.getElementById('websiteLink');
 const headlineText = document.getElementById('headlineText');
 const optionalText = document.getElementById('optionalText');
-const previewCauseName = document.getElementById('previewCauseName');
 const previewHeadline = document.getElementById('previewHeadline');
 const previewOptionalText = document.getElementById('previewOptionalText');
 
 // Initialize preview content
-previewCauseName.textContent = causeName.value || 'Your Cause Name';
 previewHeadline.textContent = headlineText.value || 'Join us today and support our cause';
 previewOptionalText.textContent = optionalText.value || '';
 
 // Update preview content on input
 causeName.addEventListener('input', () => {
-    previewCauseName.textContent = causeName.value || 'Your Cause Name';
     const prefix = titlePrefix.value === 'custom' ? customTitlePrefix.value : titlePrefix.value;
     updatePreviewTitle(prefix || 'Donate to');
+});
+
+headlineText.addEventListener('input', () => {
+    previewHeadline.textContent = headlineText.value || 'Join us today and support our cause';
+});
+
+optionalText.addEventListener('input', () => {
+    previewOptionalText.textContent = optionalText.value || '';
 });
 
 websiteLink.addEventListener('input', () => {
@@ -377,59 +382,39 @@ websiteLink.addEventListener('input', () => {
     link.style.display = websiteLink.value ? 'block' : 'none';
 });
 
-headlineText.addEventListener('input', () => {
-    previewHeadline.textContent = headlineText.value || 'Join us today and support our cause';
-});
-
-optionalText.addEventListener('input', () => {
-    previewOptionalText.textContent = optionalText.value || '';
-});
-
 // Step 3: Title prefix functionality
-document.addEventListener('DOMContentLoaded', () => {
-    const titlePrefix = document.getElementById('titlePrefix');
-    const customTitlePrefix = document.getElementById('customTitlePrefix');
-    const previewMainTitle = document.getElementById('previewMainTitle');
+const titlePrefix = document.getElementById('titlePrefix');
+const customTitlePrefix = document.getElementById('customTitlePrefix');
+const previewTitle = document.getElementById('previewTitle');
 
-    // Hide custom prefix input by default
-    if (customTitlePrefix) {
+// Hide custom input initially
+customTitlePrefix.style.display = 'none';
+
+// Handle dropdown change
+titlePrefix.addEventListener('change', function() {
+    if (this.value === 'custom') {
+        customTitlePrefix.style.display = 'block';
+        customTitlePrefix.focus();
+        updatePreviewTitle(customTitlePrefix.value);
+    } else {
         customTitlePrefix.style.display = 'none';
-    }
-
-    if (titlePrefix) {
-        titlePrefix.addEventListener('change', () => {
-            if (customTitlePrefix) {
-                if (titlePrefix.value === 'custom') {
-                    customTitlePrefix.style.display = 'block';
-                    updatePreviewTitle(customTitlePrefix.value || 'Donate to');
-                } else {
-                    customTitlePrefix.style.display = 'none';
-                    updatePreviewTitle(titlePrefix.value);
-                }
-            }
-        });
-    }
-
-    if (customTitlePrefix) {
-        customTitlePrefix.addEventListener('input', () => {
-            if (titlePrefix && titlePrefix.value === 'custom') {
-                updatePreviewTitle(customTitlePrefix.value || 'Donate to');
-            }
-        });
-    }
-
-    function updatePreviewTitle(prefix) {
-        if (previewMainTitle) {
-            const causeNameValue = document.getElementById('causeName')?.value || 'Cause Name';
-            previewMainTitle.innerHTML = `${prefix} <span id="previewCauseNameRight">${causeNameValue}</span>`;
-        }
-    }
-
-    // Initialize with default value
-    if (titlePrefix && customTitlePrefix) {
-        updatePreviewTitle(titlePrefix.value === 'custom' ? (customTitlePrefix.value || 'Donate to') : titlePrefix.value);
+        updatePreviewTitle(this.value);
     }
 });
+
+// Handle custom input change
+customTitlePrefix.addEventListener('input', function() {
+    updatePreviewTitle(this.value);
+});
+
+// Update preview title
+function updatePreviewTitle(prefix) {
+    const recipientName = document.getElementById('recipientName').value || '[Recipient Name]';
+    previewTitle.textContent = `${prefix} ${recipientName}`;
+}
+
+// Initialize preview title
+updatePreviewTitle(titlePrefix.value);
 
 // Step 3: Donation amount buttons
 const donationButtons = document.querySelectorAll('.donation-amount');
@@ -709,4 +694,112 @@ document.addEventListener('DOMContentLoaded', function() {
     if (continueButton) {
         continueButton.disabled = true;
     }
-}); 
+});
+
+// Custom Select Dropdown Implementation
+function initializeCustomSelect() {
+    const selectContainer = document.querySelector('.custom-select-container');
+    const select = document.querySelector('.title-prefix-select');
+    const customOptions = document.createElement('div');
+    customOptions.className = 'custom-select-options';
+    
+    // Create custom options
+    const options = Array.from(select.options).map(option => ({
+        value: option.value,
+        text: option.text
+    }));
+
+    options.forEach(option => {
+        const optionElement = document.createElement('div');
+        optionElement.className = 'custom-select-option';
+        optionElement.textContent = option.text;
+        
+        if (option.value === select.value) {
+            optionElement.classList.add('selected');
+        }
+        
+        optionElement.addEventListener('click', () => {
+            // Update select value
+            select.value = option.value;
+            
+            // Update selected option styling
+            customOptions.querySelectorAll('.custom-select-option').forEach(opt => {
+                opt.classList.remove('selected');
+            });
+            optionElement.classList.add('selected');
+            
+            // Handle custom option
+            if (option.value === 'custom') {
+                customTitlePrefix.style.display = 'block';
+                updatePreviewTitle(customTitlePrefix.value || 'Donate to');
+            } else {
+                customTitlePrefix.style.display = 'none';
+                updatePreviewTitle(option.value);
+            }
+            
+            // Close dropdown
+            selectContainer.classList.remove('open');
+        });
+        
+        customOptions.appendChild(optionElement);
+    });
+    
+    selectContainer.appendChild(customOptions);
+    
+    // Toggle dropdown
+    select.addEventListener('click', (e) => {
+        e.stopPropagation();
+        selectContainer.classList.toggle('open');
+    });
+    
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!selectContainer.contains(e.target)) {
+            selectContainer.classList.remove('open');
+        }
+    });
+}
+
+// Initialize custom select when DOM is loaded
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeCustomSelect);
+} else {
+    initializeCustomSelect();
+}
+
+// Title prefix functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const titlePrefix = document.getElementById('titlePrefix');
+    const customTitlePrefix = document.getElementById('customTitlePrefix');
+
+    if (titlePrefix && customTitlePrefix) {
+        // Hide custom input initially
+        customTitlePrefix.style.display = 'none';
+
+        // Handle select change
+        titlePrefix.addEventListener('change', function() {
+            if (this.value === 'custom') {
+                customTitlePrefix.style.display = 'block';
+                updatePreviewTitle(customTitlePrefix.value || 'Donate to');
+            } else {
+                customTitlePrefix.style.display = 'none';
+                updatePreviewTitle(this.value);
+            }
+        });
+
+        // Handle custom input changes
+        customTitlePrefix.addEventListener('input', function() {
+            if (titlePrefix.value === 'custom') {
+                updatePreviewTitle(this.value || 'Donate to');
+            }
+        });
+    }
+});
+
+function updatePreviewTitle(prefix) {
+    const causeName = document.getElementById('causeName')?.value || 'Cause Name';
+    const previewMainTitle = document.getElementById('previewMainTitle');
+    if (previewMainTitle) {
+        previewMainTitle.innerHTML = `${prefix} <span id="previewCauseNameRight">${causeName}</span>`;
+    }
+} 

@@ -186,20 +186,13 @@
 
                             <div class="form-group">
                                 <label for="titlePrefix">Title Prefix</label>
-                                <div class="custom-select-container">
-                                    <select id="titlePrefix" class="title-prefix-select">
-                                        <option value="Donate to">Donate to</option>
-                                        <option value="Support">Support</option>
-                                        <option value="Invest in">Invest in</option>
-                                        <option value="Keep alive">Keep alive</option>
-                                        <option value="Be part of">Be part of</option>
-                                        <option value="Give to">Give to</option>
-                                        <option value="Sponsor">Sponsor</option>
-                                        <option value="Empower">Empower</option>
-                                        <option value="Contribute to">Contribute to</option>
-                                        <option value="custom">Other...</option>
-                                    </select>
-                                </div>
+                                <select id="titlePrefix" class="title-prefix-select" required>
+                                    <option value="Donate to">Donate to</option>
+                                    <option value="Support">Support</option>
+                                    <option value="Help">Help</option>
+                                    <option value="Give to">Give to</option>
+                                    <option value="custom">Custom</option>
+                                </select>
                                 <input type="text" id="customTitlePrefix" class="custom-title-prefix" placeholder="Enter custom prefix">
                             </div>
 
@@ -233,7 +226,6 @@
                                     <div class="preview-image-container">
                                         <img id="previewImage" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1080' height='1920' viewBox='0 0 1080 1920'%3E%3Crect width='100%25' height='100%25' fill='%23f5f5f5'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='24' fill='%23999'%3EImage Preview%3C/text%3E%3C/svg%3E">
                                         <div class="preview-overlay">
-                                            <h2 id="previewCauseName" class="preview-title">Cause Name</h2>
                                         </div>
                                     </div>
                                 </div>
