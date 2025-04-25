@@ -186,13 +186,26 @@
 
                             <div class="form-group">
                                 <label for="titlePrefix">Title Prefix</label>
-                                <select id="titlePrefix" class="title-prefix-select" required>
-                                    <option value="Donate to">Donate to</option>
-                                    <option value="Support">Support</option>
-                                    <option value="Help">Help</option>
-                                    <option value="Give to">Give to</option>
-                                    <option value="custom">Custom</option>
-                                </select>
+                                <div class="custom-select-container">
+                                    <div class="custom-select-trigger" id="titlePrefixTrigger">
+                                        <span>Donate to</span>
+                                        <i class="fas fa-chevron-down"></i>
+                                    </div>
+                                    <div class="custom-options">
+                                        <div class="custom-option selected" data-value="Donate to">Donate to</div>
+                                        <div class="custom-option" data-value="Support">Support</div>
+                                        <div class="custom-option" data-value="Help">Help</div>
+                                        <div class="custom-option" data-value="Give to">Give to</div>
+                                        <div class="custom-option" data-value="custom">Custom</div>
+                                    </div>
+                                    <select id="titlePrefix" class="title-prefix-select" required style="display: none;">
+                                        <option value="Donate to">Donate to</option>
+                                        <option value="Support">Support</option>
+                                        <option value="Help">Help</option>
+                                        <option value="Give to">Give to</option>
+                                        <option value="custom">Custom</option>
+                                    </select>
+                                </div>
                                 <input type="text" id="customTitlePrefix" class="custom-title-prefix" placeholder="Enter custom prefix">
                             </div>
 

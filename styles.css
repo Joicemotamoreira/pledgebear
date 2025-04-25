@@ -923,4 +923,221 @@ h1 {
 .donation-amount-input::-webkit-outer-spin-button {
     opacity: 1;
     height: 24px;
+}
+
+.custom-select-container {
+    position: relative;
+    width: 100%;
+    user-select: none;
+}
+
+.custom-select-trigger {
+    position: relative;
+    width: 100%;
+    padding: 1rem;
+    font-family: var(--font-nunito);
+    font-size: 1rem;
+    color: var(--color-navy);
+    background-color: var(--color-light-bg);
+    border: 2px solid transparent;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+}
+
+.custom-select-trigger:hover {
+    background-color: white;
+    border-color: var(--color-orange);
+}
+
+.custom-select-trigger i {
+    font-size: 0.8rem;
+    transition: transform 0.3s ease;
+}
+
+.custom-select-container.open .custom-select-trigger i {
+    transform: rotate(180deg);
+}
+
+.custom-options {
+    position: absolute;
+    top: calc(100% + 5px);
+    left: 0;
+    right: 0;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 100;
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+.custom-select-container.open .custom-options {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+    transform: translateY(0);
+}
+
+.custom-option {
+    padding: 1rem;
+    cursor: pointer;
+    font-family: var(--font-nunito);
+    color: var(--color-navy);
+    transition: all 0.3s ease;
+}
+
+.custom-option:hover,
+.custom-option:focus {
+    background-color: var(--color-light-bg);
+    color: var(--color-orange);
+}
+
+.custom-option.selected {
+    background-color: var(--color-orange);
+    color: white;
+    font-weight: 600;
+}
+
+/* Estilizar scrollbar do dropdown */
+.custom-options::-webkit-scrollbar {
+    width: 8px;
+}
+
+.custom-options::-webkit-scrollbar-track {
+    background: var(--color-light-bg);
+    border-radius: 4px;
+}
+
+.custom-options::-webkit-scrollbar-thumb {
+    background: var(--color-orange);
+    border-radius: 4px;
+}
+
+.custom-options::-webkit-scrollbar-thumb:hover {
+    background: #ff6b3d;
+}
+
+.title-prefix-select {
+    width: 100%;
+    padding: 1rem;
+    font-family: var(--font-nunito);
+    font-size: 1rem;
+    color: var(--color-navy);
+    background-color: var(--color-light-bg);
+    border: 2px solid transparent;
+    border-radius: 10px;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%231D3557' d='M6 8.825L1.175 4 2.238 2.938 6 6.7l3.763-3.763L10.825 4z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    transition: all 0.3s ease;
+}
+
+.title-prefix-select:hover {
+    background-color: white;
+    border-color: var(--color-orange);
+}
+
+.title-prefix-select:focus {
+    outline: none;
+    border-color: var(--color-orange);
+    box-shadow: 0 0 0 3px rgba(255, 130, 67, 0.2);
+    background-color: white;
+}
+
+/* Estilos para as opções do select */
+.title-prefix-select option {
+    padding: 1rem;
+    font-family: var(--font-nunito);
+    font-size: 1rem;
+    color: var(--color-navy);
+    background-color: white;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+/* Estilo quando a opção está selecionada */
+.title-prefix-select option:checked {
+    background-color: var(--color-orange);
+    color: white;
+    font-weight: 600;
+}
+
+/* Estilo quando passa o mouse por cima da opção */
+.title-prefix-select option:hover {
+    background-color: var(--color-light-bg);
+    color: var(--color-orange);
+}
+
+/* Remover borda padrão do select quando focado */
+.title-prefix-select:focus-visible {
+    outline: none;
+}
+
+/* Estilizar o dropdown nativo */
+.title-prefix-select::-ms-expand {
+    display: none;
+}
+
+.title-prefix-select::-webkit-scrollbar {
+    width: 8px;
+}
+
+.title-prefix-select::-webkit-scrollbar-track {
+    background: var(--color-light-bg);
+    border-radius: 4px;
+}
+
+.title-prefix-select::-webkit-scrollbar-thumb {
+    background: var(--color-orange);
+    border-radius: 4px;
+}
+
+.title-prefix-select::-webkit-scrollbar-thumb:hover {
+    background: #ff6b3d;
+}
+
+/* Estilo para o container das opções */
+.title-prefix-select optgroup {
+    background-color: white;
+    color: var(--color-navy);
+    font-family: var(--font-nunito);
+}
+
+.custom-title-prefix {
+    margin-top: 0.5rem;
+    display: none;
+    width: 100%;
+    padding: 1rem;
+    font-family: var(--font-nunito);
+    font-size: 1rem;
+    color: var(--color-navy);
+    background-color: var(--color-light-bg);
+    border: 2px solid transparent;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.custom-title-prefix:hover,
+.custom-title-prefix:focus {
+    background-color: white;
+    border-color: var(--color-orange);
+    outline: none;
+}
+
+.custom-title-prefix:focus {
+    box-shadow: 0 0 0 3px rgba(255, 130, 67, 0.2);
 } 

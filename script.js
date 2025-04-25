@@ -476,4 +476,94 @@ document.querySelector('.recaptcha-container').addEventListener('click', functio
         checkbox.checked = !checkbox.checked;
         checkbox.dispatchEvent(new Event('change'));
     }
+});
+
+// Custom Select Dropdown
+document.addEventListener('DOMContentLoaded', function() {
+    const selectContainer = document.querySelector('.custom-select-container');
+    const selectTrigger = document.querySelector('.custom-select-trigger');
+    const options = document.querySelectorAll('.custom-option');
+    const hiddenSelect = document.getElementById('titlePrefix');
+    const customTitlePrefix = document.getElementById('customTitlePrefix');
+    const triggerText = selectTrigger.querySelector('span');
+
+    // Toggle dropdown
+    selectTrigger.addEventListener('click', () => {
+        selectContainer.classList.toggle('open');
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!selectContainer.contains(e.target)) {
+            selectContainer.classList.remove('open');
+        }
+    });
+
+    // Handle option selection
+    options.forEach(option => {
+        option.addEventListener('click', () => {
+            // Update selected option
+            options.forEach(opt => opt.classList.remove('selected'));
+            option.classList.add('selected');
+            
+            // Update trigger text and hidden select value
+            const value = option.getAttribute('data-value');
+            triggerText.textContent = option.textContent;
+            hiddenSelect.value = value;
+
+            // Handle custom option
+            if (value === 'custom') {
+                customTitlePrefix.style.display = 'block';
+                customTitlePrefix.focus();
+                updatePreviewTitle(customTitlePrefix.value);
+            } else {
+                customTitlePrefix.style.display = 'none';
+                updatePreviewTitle(value);
+            }
+
+            // Close dropdown
+            selectContainer.classList.remove('open');
+        });
+    });
+
+    // Handle keyboard navigation
+    selectContainer.addEventListener('keydown', (e) => {
+        if (!selectContainer.classList.contains('open')) {
+            if (e.key === 'Enter' || e.key === ' ' || e.key === 'ArrowDown') {
+                e.preventDefault();
+                selectContainer.classList.add('open');
+            }
+        } else {
+            const activeOption = document.querySelector('.custom-option:focus');
+            const options = [...document.querySelectorAll('.custom-option')];
+            
+            switch(e.key) {
+                case 'Escape':
+                    selectContainer.classList.remove('open');
+                    break;
+                case 'ArrowUp':
+                    e.preventDefault();
+                    if (activeOption) {
+                        const prevOption = options[options.indexOf(activeOption) - 1];
+                        if (prevOption) prevOption.focus();
+                    }
+                    break;
+                case 'ArrowDown':
+                    e.preventDefault();
+                    if (!activeOption) {
+                        options[0].focus();
+                    } else {
+                        const nextOption = options[options.indexOf(activeOption) + 1];
+                        if (nextOption) nextOption.focus();
+                    }
+                    break;
+                case 'Enter':
+                case ' ':
+                    if (activeOption) {
+                        activeOption.click();
+                    }
+                    break;
+            }
+        }
+    });
 }); 
