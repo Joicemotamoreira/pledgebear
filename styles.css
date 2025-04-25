@@ -138,7 +138,7 @@ h1 {
 }
 
 .form-group {
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.5rem;
 }
 
 .form-group label {
@@ -545,13 +545,13 @@ h1 {
     resize: vertical;
 }
 
-.form-heading {
+.form-heading, .preview-heading {
     margin-bottom: 2rem;
     border-bottom: 2px solid var(--color-light-bg);
     padding-bottom: 0.5rem;
 }
 
-.form-heading h3 {
+.form-heading h3, .preview-heading h3 {
     color: var(--color-orange);
     font-size: 1.1rem;
     font-weight: 600;
@@ -561,7 +561,7 @@ h1 {
     margin: 0;
 }
 
-.form-heading h3 i {
+.form-heading h3 i, .preview-heading h3 i {
     font-size: 1.1rem;
 }
 
@@ -569,10 +569,11 @@ h1 {
     position: relative;
     border: 2px dashed var(--color-navy);
     border-radius: 10px;
-    padding: 2rem;
+    padding: 8px;
     text-align: center;
     cursor: pointer;
     transition: all 0.3s ease;
+    max-width: 200px;
 }
 
 .replace-image-icon {
@@ -711,7 +712,10 @@ h1 {
     color: #666;
     margin-bottom: 1rem;
 }
-
+.preview-website-link {
+    text-decoration: none;
+    color: var(--color-orange);
+}
 .preview-optional-text {
     margin-bottom: 1rem;
 }
@@ -872,6 +876,11 @@ h1 {
     text-decoration: underline;
 }
 
+@media (max-width: 1220px) {
+    .setup-container {
+        grid-template-columns: 1fr;
+    }
+}
 @media (max-width: 1024px) {
     .preview-split {
         grid-template-columns: 1fr;
