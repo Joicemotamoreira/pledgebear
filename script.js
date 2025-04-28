@@ -198,7 +198,7 @@ step2Button.addEventListener('click', () => {
     if (verificationCode.style.display !== 'block') {
         verificationCode.style.display = 'block';
         verificationMessage.style.display = 'block';
-        step2Button.textContent = 'Continue to Step 3';
+        step2Button.textContent = "Let's See Your Page!";
         step2Button.disabled = true;
         return;
     }
@@ -272,6 +272,7 @@ const imagePreview = document.getElementById('imagePreview');
 const previewImage = document.getElementById('previewImage');
 const imageUploadPlaceholder = document.querySelector('.image-upload-placeholder');
 const imageUploadContainer = document.querySelector('.image-upload-container');
+const publishButton = document.getElementById('publishButton');
 
 // Step 3: Image upload functionality
 imageUpload.addEventListener('change', () => {
@@ -283,6 +284,8 @@ imageUpload.addEventListener('change', () => {
             previewImage.src = e.target.result;
             imagePreview.style.display = 'block';
             imageUploadPlaceholder.style.display = 'none';
+            // Enable the continue button when image is uploaded
+            publishButton.disabled = false;
         };
         reader.readAsDataURL(file);
     }
@@ -309,6 +312,8 @@ imageUploadContainer.addEventListener('drop', (e) => {
             previewImage.src = e.target.result;
             imagePreview.style.display = 'block';
             imageUploadPlaceholder.style.display = 'none';
+            // Enable the continue button when image is uploaded
+            publishButton.disabled = false;
         };
         reader.readAsDataURL(file);
     }
@@ -429,19 +434,22 @@ paymentButtons.forEach(button => {
 });
 
 // Step 3: Publish button handler
-const publishButton = document.getElementById('publishButton');
 publishButton.addEventListener('click', () => {
     if (!causeName.value) {
         alert('Please enter a cause name');
         return;
     }
 
-    if (!imagePreview.src.includes('data:image/svg+xml')) {
+    if (!imagePreview.src || imagePreview.src.includes('data:image/svg+xml')) {
         alert('Please upload an image');
         return;
     }
 
-    alert('Page published successfully!');
+    // Move to step 3
+    step2.classList.remove('active');
+    step3.classList.add('active');
+    document.querySelectorAll('.step')[1].classList.add('completed', 'inactive');
+    document.querySelectorAll('.step')[2].classList.remove('inactive');
 });
 
 // Step 2: Password strength calculation

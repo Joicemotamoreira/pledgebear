@@ -22,11 +22,11 @@
                 </div>
                 <div class="step inactive">
                     <div class="step-number">2</div>
-                    <span class="step-text">Account details</span>
+                    <span class="step-text">Design Your Page</span>
                 </div>
                 <div class="step inactive">
                     <div class="step-number">3</div>
-                    <span class="step-text">Design Your Page</span>
+                    <span class="step-text">Account details</span>
                 </div>
             </div>
 
@@ -59,6 +59,167 @@
             <!-- Step 2 Content -->
             <div id="step2" class="step-content">
                 <button id="backButton" class="back-button">
+                    <i class="fas fa-arrow-left"></i>
+                    Back
+                </button>
+                <h1>Design Your Page</h1>
+                <p class="subtitle">Customize your fundraising page</p>
+
+                <div class="setup-container">
+                    <!-- Left Column: Setup Form -->
+                    <div class="setup-form">
+                        <div class="form-heading">
+                            <h3><i class="fas fa-paint-brush"></i> Design</h3>
+                        </div>
+
+                        <div class="form-content">
+                            <div class="form-group">
+                                <label for="pageImage">Add Image</label>
+                                <div class="image-upload-container">
+                                    <div class="replace-image-icon">
+                                        <i class="fas fa-sync-alt"></i>
+                                    </div>
+                                    <input type="file" id="pageImage" accept="image/*" class="image-upload">
+                                    <div class="image-upload-placeholder">
+                                        <i class="fas fa-image"></i>
+                                        <span>Click to upload image</span>
+                                        <small>Recommended size: 1080x1920</small>
+                                    </div>
+                                    <img id="imagePreview" class="image-preview" style="display: none;">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="causeName">Cause Name <span class="required">*</span></label>
+                                <input type="text" id="causeName" placeholder="i.e. BookBridge" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="titlePrefix">Title Prefix</label>
+                                <div class="custom-select-container">
+                                    <div class="custom-select-trigger" id="titlePrefixTrigger">
+                                        <span>Donate to</span>
+                                        <i class="fas fa-chevron-down"></i>
+                                    </div>
+                                    <div class="custom-options">
+                                        <div class="custom-option selected" data-value="Donate to">Donate to</div>
+                                        <div class="custom-option" data-value="Support">Support</div>
+                                        <div class="custom-option" data-value="Help">Help</div>
+                                        <div class="custom-option" data-value="Give to">Give to</div>
+                                        <div class="custom-option" data-value="custom">Custom..</div>
+                                    </div>
+                                    <select id="titlePrefix" class="title-prefix-select" required style="display: none;">
+                                        <option value="Donate to">Donate to</option>
+                                        <option value="Support">Support</option>
+                                        <option value="Help">Help</option>
+                                        <option value="Give to">Give to</option>
+                                        <option value="custom">Custom..</option>
+                                    </select>
+                                </div>
+                                <input type="text" id="customTitlePrefix" class="custom-title-prefix" placeholder="Enter custom prefix">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="headlineText">Headline</label>
+                                <input type="text" id="headlineText" placeholder="Join us today and support our cause">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="optionalText">Description</label>
+                                <textarea id="optionalText" rows="3" placeholder="i.e. I'm raising funds to keep our local library open and free for everyone."></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Donation Amounts</label>
+                                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;">
+                                    <input type="number" id="donationAmount1" value="10" min="1" class="donation-amount-input" placeholder="Amount 1">
+                                    <input type="number" id="donationAmount2" value="15" min="1" class="donation-amount-input" placeholder="Amount 2">
+                                    <input type="number" id="donationAmount3" value="20" min="1" class="donation-amount-input" placeholder="Amount 3">
+                                </div>
+                            </div>
+
+                            <button id="publishButton" class="next-button">
+                                Continue to Step 3
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Live Preview -->
+                    <div class="live-preview">
+                        <div class="preview-container">
+                            <div class="preview-heading">
+                                <h3><i class="fas fa-eye"></i> Preview</h3>
+                            </div>
+                            <div class="preview-split">
+                                <!-- Left side of preview -->
+                                <div class="preview-left">
+                                    <div class="preview-image-container">
+                                        <img id="previewImage" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1080' height='1920' viewBox='0 0 1080 1920'%3E%3Crect width='100%25' height='100%25' fill='%23f5f5f5'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='24' fill='%23999'%3EImage Preview%3C/text%3E%3C/svg%3E">
+                                        <div class="preview-overlay">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Right side of preview -->
+                                <div class="preview-right">
+                                    <div class="preview-content">
+                                        <h1 id="previewMainTitle">Donate to <span id="previewCauseNameRight">Cause Name</span></h1>
+                                        <p id="previewHeadline" class="preview-headline">Headline text here</p>
+                                        <p id="previewOptionalText" class="preview-optional-text">Optional text here</p>
+
+                                        <div class="donation-frequency">
+                                            <button class="frequency-button">Once</button>
+                                            <button class="frequency-button active">Monthly</button>
+                                            <button class="frequency-button">Annually</button>
+                                        </div>
+
+                                        <p class="donation-label">Choose your donation amount</p>
+                                        <div class="donation-grid">
+                                            <button class="donation-amount">
+                                                <span class="amount">$10</span>
+                                                <span class="period">/Month</span>
+                                            </button>
+                                            <button class="donation-amount active">
+                                                <span class="amount">$15</span>
+                                                <span class="period">/Month</span>
+                                            </button>
+                                            <button class="donation-amount">
+                                                <span class="amount">$20</span>
+                                                <span class="period">/Month</span>
+                                            </button>
+                                            <button class="donation-amount">
+                                                <span class="amount">Other</span>
+                                            </button>
+                                        </div>
+
+                                        <p class="donation-label">Choose your payment method</p>
+                                        <div class="payment-options">
+                                            <button class="payment-option gpay">
+                                                Google Pay
+                                            </button>
+                                            <button class="payment-option applepay">
+                                                Apple Pay
+                                            </button>
+                                            <button class="payment-option card">
+                                                <i class="fas fa-credit-card"></i>
+                                                Card
+                                            </button>
+                                        </div>
+
+                                        <p class="payment-disclaimer">
+                                            Your contribution does not constitute a charitable donation. But it will enable PledgeBear to continue providing essential information — for free. Recurring contributions will renew automatically, but you may pause or cancel at any time. You can manage your subscription by <a href="#">clicking here</a>. When you make a contribution you agree to email communications from us. You can opt-out at any time.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3 Content -->
+            <div id="step3" class="step-content">
+                <button id="backButtonStep3" class="back-button">
                     <i class="fas fa-arrow-left"></i>
                     Back
                 </button>
@@ -144,167 +305,6 @@
                 <button id="step2Button" class="next-button" disabled>
                     Sign Up
                 </button>
-            </div>
-
-            <!-- Step 3 Content -->
-            <div id="step3" class="step-content">
-                <button id="backButtonStep3" class="back-button">
-                    <i class="fas fa-arrow-left"></i>
-                    Back
-                </button>
-                <h1>Design Your Page</h1>
-                <p class="subtitle">Customize your fundraising page</p>
-
-                <div class="setup-container">
-                    <!-- Left Column: Setup Form -->
-                    <div class="setup-form">
-                        <div class="form-heading">
-                            <h3><i class="fas fa-paint-brush"></i> Design</h3>
-                        </div>
-
-                        <div class="form-content">
-                            <div class="form-group">
-                                <label for="pageImage">Add Image</label>
-                                <div class="image-upload-container">
-                                    <div class="replace-image-icon">
-                                        <i class="fas fa-sync-alt"></i>
-                                    </div>
-                                    <input type="file" id="pageImage" accept="image/*" class="image-upload">
-                                    <div class="image-upload-placeholder">
-                                        <i class="fas fa-image"></i>
-                                        <span>Click to upload image</span>
-                                        <small>Recommended size: 1080x1920</small>
-                                    </div>
-                                    <img id="imagePreview" class="image-preview" style="display: none;">
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="causeName">Cause Name <span class="required">*</span></label>
-                                <input type="text" id="causeName" placeholder="i.e. BookBridge" required>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="titlePrefix">Title Prefix</label>
-                                <div class="custom-select-container">
-                                    <div class="custom-select-trigger" id="titlePrefixTrigger">
-                                        <span>Donate to</span>
-                                        <i class="fas fa-chevron-down"></i>
-                                    </div>
-                                    <div class="custom-options">
-                                        <div class="custom-option selected" data-value="Donate to">Donate to</div>
-                                        <div class="custom-option" data-value="Support">Support</div>
-                                        <div class="custom-option" data-value="Help">Help</div>
-                                        <div class="custom-option" data-value="Give to">Give to</div>
-                                        <div class="custom-option" data-value="custom">Custom..</div>
-                                    </div>
-                                    <select id="titlePrefix" class="title-prefix-select" required style="display: none;">
-                                        <option value="Donate to">Donate to</option>
-                                        <option value="Support">Support</option>
-                                        <option value="Help">Help</option>
-                                        <option value="Give to">Give to</option>
-                                        <option value="custom">Custom..</option>
-                                    </select>
-                                </div>
-                                <input type="text" id="customTitlePrefix" class="custom-title-prefix" placeholder="Enter custom prefix">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="headlineText">Headline</label>
-                                <input type="text" id="headlineText" placeholder="Join us today and support our cause">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="optionalText">Description</label>
-                                <textarea id="optionalText" rows="3" placeholder="i.e. I’m raising funds to keep our local library open and free for everyone."></textarea>
-                            </div>
-
-                            <div class="form-group">
-                                <label>Donation Amounts</label>
-                                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;">
-                                    <input type="number" id="donationAmount1" value="10" min="1" class="donation-amount-input" placeholder="Amount 1">
-                                    <input type="number" id="donationAmount2" value="15" min="1" class="donation-amount-input" placeholder="Amount 2">
-                                    <input type="number" id="donationAmount3" value="20" min="1" class="donation-amount-input" placeholder="Amount 3">
-                                </div>
-                            </div>
-
-                            <button id="publishButton" class="next-button">
-                                Publish Page
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Right Column: Live Preview -->
-                    <div class="live-preview">
-                        <div class="preview-container">
-                            <div class="preview-heading">
-                                <h3><i class="fas fa-eye"></i> Preview</h3>
-                            </div>
-                            <div class="preview-split">
-                                <!-- Left side of preview -->
-                                <div class="preview-left">
-                                    <div class="preview-image-container">
-                                        <img id="previewImage" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1080' height='1920' viewBox='0 0 1080 1920'%3E%3Crect width='100%25' height='100%25' fill='%23f5f5f5'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='24' fill='%23999'%3EImage Preview%3C/text%3E%3C/svg%3E">
-                                        <div class="preview-overlay">
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Right side of preview -->
-                                <div class="preview-right">
-                                    <div class="preview-content">
-                                        <h1 id="previewMainTitle">Donate to <span id="previewCauseNameRight">Cause Name</span></h1>
-                                        <p id="previewHeadline" class="preview-headline">Headline text here</p>
-                                        <p id="previewOptionalText" class="preview-optional-text">Optional text here</p>
-
-                                        <div class="donation-frequency">
-                                            <button class="frequency-button">Once</button>
-                                            <button class="frequency-button active">Monthly</button>
-                                            <button class="frequency-button">Annually</button>
-                                        </div>
-
-                                        <p class="donation-label">Choose your donation amount</p>
-                                        <div class="donation-grid">
-                                            <button class="donation-amount">
-                                                <span class="amount">$10</span>
-                                                <span class="period">/Month</span>
-                                            </button>
-                                            <button class="donation-amount active">
-                                                <span class="amount">$15</span>
-                                                <span class="period">/Month</span>
-                                            </button>
-                                            <button class="donation-amount">
-                                                <span class="amount">$20</span>
-                                                <span class="period">/Month</span>
-                                            </button>
-                                            <button class="donation-amount">
-                                                <span class="amount">Other</span>
-                                            </button>
-                                        </div>
-
-                                        <p class="donation-label">Choose your payment method</p>
-                                        <div class="payment-options">
-                                            <button class="payment-option gpay">
-                                                Google Pay
-                                            </button>
-                                            <button class="payment-option applepay">
-                                                Apple Pay
-                                            </button>
-                                            <button class="payment-option card">
-                                                <i class="fas fa-credit-card"></i>
-                                                Card
-                                            </button>
-                                        </div>
-
-                                        <p class="payment-disclaimer">
-                                            Your contribution does not constitute a charitable donation. But it will enable PledgeBear to continue providing essential information — for free. Recurring contributions will renew automatically, but you may pause or cancel at any time. You can manage your subscription by <a href="#">clicking here</a>. When you make a contribution you agree to email communications from us. You can opt-out at any time.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>

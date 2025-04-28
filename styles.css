@@ -23,9 +23,14 @@ body {
 }
 
 .signup-container {
-    max-width: 800px;
-    margin: 40px auto;
+    max-width: 1500px;
+    margin: 0 auto;
     padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--color-light-bg);
 }
 
 /* Larger container for Step 3 */
