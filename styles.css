@@ -681,7 +681,7 @@ h1 {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,0) 70%, rgba(0,0,0,0.6) 100%);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.097) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,0) 70%, rgba(0, 0, 0, 0.097) 100%);
     color: white;
     padding: 2rem;
     display: flex;
@@ -726,7 +726,7 @@ h1 {
 }
 
 .donation-frequency {
-    display: flex;
+    display: none;
     gap: 0;
     margin-bottom: 1.5rem;
     border-bottom: 1px solid #eee;
@@ -1151,4 +1151,28 @@ h1 {
     font-size: 0.9rem;
     color: rgba(29, 53, 87, 0.7);
     font-style: italic;
+}
+
+.preview-image-text {
+    position: absolute;
+    top: 100px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    color: #1D3557;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.preview-image-text h1 {
+    font-size: 45px;
+    margin: 0;
+    font-weight: 700;
+}
+
+.preview-image-text p {
+    font-size: 20px;
+    margin: 0.5rem 0 0 0;
+    color: #444;
+    font-weight: 400;
 } 

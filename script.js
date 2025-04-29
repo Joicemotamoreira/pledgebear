@@ -574,4 +574,21 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     });
-}); 
+});
+
+// Atualização dinâmica do texto sobre a imagem de preview
+const causeNameInput = document.getElementById('causeName');
+const headlineInput = document.getElementById('headlineText');
+const previewImageCauseName = document.getElementById('previewImageCauseName');
+const previewImageHeadline = document.getElementById('previewImageHeadline');
+
+if (causeNameInput && previewImageCauseName) {
+    causeNameInput.addEventListener('input', function() {
+        previewImageCauseName.textContent = this.value || 'Cause Name';
+    });
+}
+if (headlineInput && previewImageHeadline) {
+    headlineInput.addEventListener('input', function() {
+        previewImageHeadline.textContent = this.value || 'Headline text here';
+    });
+} 
