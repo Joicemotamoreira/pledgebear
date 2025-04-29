@@ -708,13 +708,13 @@ h1 {
 
 .preview-content h1 {
     font-size: 1.8rem;
-    color: #1a1a1a;
+    color: var(--color-navy);
     margin-bottom: 1rem;
     text-align: left;
 }
 
 .preview-headline {
-    color: #666;
+    color: #1a1a1a;
     margin-bottom: 1rem;
 }
 .preview-website-link {
