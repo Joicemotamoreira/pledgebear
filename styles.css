@@ -1144,4 +1144,11 @@ h1 {
 
 .custom-title-prefix:focus {
     box-shadow: 0 0 0 3px rgba(255, 130, 67, 0.2);
+}
+
+.frequency-note {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: rgba(29, 53, 87, 0.7);
+    font-style: italic;
 } 
