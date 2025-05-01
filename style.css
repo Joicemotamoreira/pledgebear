@@ -165,13 +165,13 @@
     overflow: hidden;
   }
   
-  .bear-button.primary {
+  .bear-button.primary, .bear-button.primary a {
     background-color: var(--color-orange);
     color: white;
     box-shadow: 0 4px 14px rgba(255, 130, 67, 0.2);
   }
   
-  .bear-button.primary:hover {
+  .bear-button.primary:hover, .bear-button.primary:hover a {
     background-color: #ff6a20;
     color: var(--color-navy);
   }

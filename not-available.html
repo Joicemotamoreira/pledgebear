@@ -52,39 +52,33 @@
 </head>
 
 <body>
-  <!-- Navegação -->
-  <nav class="navbar" id="navbar">
-    <div class="container">
-      <div class="logo" onclick="scrollToSection('home')">
-        <a href="index.html"><img src="images/logo (1).png" alt="PledgeBear Logo"></a>
-      </div>
-      
-      <div class="nav-links">
-        <button onclick="scrollToSection('how-it-works')">How It Works</button>
-        <button onclick="scrollToSection('features')">Features</button>
-        <button onclick="scrollToSection('testimonials')">Testimonials</button>
-        <button class="bear-button primary" onclick="scrollToSection('get-started')">
-          Get Started
+    <!-- Navegação -->
+    <nav class="navbar" id="navbar">
+      <div class="container">
+        <div class="logo" onclick="scrollToSection('home')">
+          <img src="images/logo (1).png" alt="PledgeBear Logo">
+        </div>
+        
+        <div class="nav-links">
+          <button><a href="index.html">Home</a></button>
+          <button><a href="">About Us</a></button>
+          <button><a href="contact.html">Contact Us</a></button>
+        </div>
+        
+        <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle menu">
+          <i class="fas fa-bars"></i>
         </button>
       </div>
       
-      <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle menu">
-        <i class="fas fa-bars"></i>
-      </button>
-    </div>
-    
-    <!-- Menu Mobile -->
-    <div class="mobile-menu" id="mobile-menu">
-      <div class="mobile-links">
-        <button onclick="scrollToSection('how-it-works')">How It Works</button>
-        <button onclick="scrollToSection('features')">Features</button>
-        <button onclick="scrollToSection('testimonials')">Testimonials</button>
-        <button class="bear-button primary full-width" onclick="scrollToSection('get-started')">
-          Get Started
-        </button>
+      <!-- Menu Mobile -->
+      <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-links">
+          <button><a href="index.html">Home</a></button>
+          <button><a href="">About Us</a></button>
+          <button><a href="contact.html">Contact Us</a></button>
+        </div>
       </div>
-    </div>
-  </nav>
+    </nav>
 
   <!-- Hero Section -->
   <section id="home" class="hero">
