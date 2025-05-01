@@ -847,6 +847,11 @@
   .footer-certifications img {
     width: 40px;
   }
+  .footer-address {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
   .footer-address h4 {
     margin-bottom: 16px;
     font-size: 18px;
@@ -870,10 +875,10 @@
   .social-links a:hover {
     color: white;
   }
-  
+
   .footer-links h4 {
     font-size: 1.125rem;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
     text-align: center;
   }
   
