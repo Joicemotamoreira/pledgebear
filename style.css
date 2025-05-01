@@ -923,7 +923,7 @@
     text-decoration: none;
   }
   .social-links a:hover {
-    color: white;
+    color: var(--color-orange);
   }
 
   .footer-links h4 {
