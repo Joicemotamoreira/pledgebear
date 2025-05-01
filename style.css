@@ -805,7 +805,9 @@
   /* Contact Page */
   #copyMessage,
   #copyMessage2,
-  #copyMessage3 {
+  #copyMessage3,
+  #copyMessage4,
+  #copyMessage5 {
     background-color: white;
     color: var(--color-orange);
     padding: 1px 6px;
@@ -826,6 +828,14 @@
   #copyMessage {
     top: 22px;
     right: -23px;
+  }
+  #copyMessage4 {
+    top: -4px;
+    right: -71px;
+  }
+  #copyMessage5 {
+    top: -4px;
+    right: -71px;
   }
   .copyIcon {
     position: relative;
@@ -854,6 +864,15 @@
   .fa-envelope, .fa-phone {
     color: var(--color-navy);
     font-size: 35px;
+  }
+  .maps-location-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 30px;
+    margin-top: 5px;
+  }
+  .maps-location-grid iframe {
+    margin-top: 10px;
   }
   /* Footer */
   .footer {
