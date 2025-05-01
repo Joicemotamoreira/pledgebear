@@ -799,6 +799,59 @@
     text-decoration: underline;
   }
   
+  /* Contact Page */
+  #copyMessage,
+  #copyMessage2,
+  #copyMessage3 {
+    background-color: white;
+    color: var(--color-orange);
+    padding: 1px 6px;
+    max-width: 65px;
+    border-radius: 4px;
+    font-size: 12px;
+    display: block;
+    position: absolute;
+    top: -4px;
+    right: -71px;
+  }
+  #copyMessage2,
+  #copyMessage3 {
+    top: 22px;
+    right: -23px;
+  }
+
+  #copyMessage {
+    top: 22px;
+    right: -23px;
+  }
+  .copyIcon {
+    position: relative;
+    cursor: pointer;
+    transition: all 200ms ease-in-out;
+    width: 15px;
+    height: fit-content;
+    opacity: 0.6;
+    cursor: pointer;
+  }
+  .contact-details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 2fr;
+    grid-gap: 10px;
+    margin: 0 auto;
+  }  
+  .contact-details-and-copy a {
+    font-size: 15px;
+    text-decoration: none;
+    color: var(--color-orange);
+  }
+  
+  .contact-details-and-copy img:hover {
+    opacity: 1;
+  }
+  .fa-envelope, .fa-phone {
+    color: var(--color-navy);
+    font-size: 35px;
+  }
   /* Footer */
   .footer {
     background-color: var(--color-navy);
@@ -835,11 +888,7 @@
     color: rgba(255, 255, 255, 0.7);
     margin-bottom: 1rem;
   }
-  .footer-icons-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-  }
+
   .footer-certifications {
     display: flex;
     gap: 10px;
@@ -870,8 +919,9 @@
     color: rgba(255, 255, 255, 0.8);
     transition: color 0.3s;
     font-size: 1.25rem;
+    display: flex;
+    text-decoration: none;
   }
-  
   .social-links a:hover {
     color: white;
   }
@@ -980,6 +1030,7 @@
     transform: translateX(0) translateY(0) scale(1);
   }
 
+  
 
 @media (max-width: 1024px) {
   .grid-container {
