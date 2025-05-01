@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Pledge Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Google tag (gtag.js) --> 
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-73G4L1W7R6"></script> 
+    <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-73G4L1W7R6'); </script>
+    <style>
+        body { background: #fdfaf6; margin: 0; min-height: 100vh; display: flex; flex-direction: column; }
+        .header { width: 100%; padding: 1.5rem 0 1rem 0; display: flex; justify-content: center; align-items: center; }
+        .header img { height: 48px; width: auto; }
+        .main-content { flex: 1; display: flex; justify-content: center; align-items: center; min-height: 900px; padding: 2rem 0; }
+        .preview-split-view { background: #fff; border-radius: 20px; box-shadow: 0 4px 24px rgba(0,0,0,0.08); display: grid; grid-template-columns: 1fr 1.2fr; gap: 0; max-width: 1200px; width: 100%; min-height: 800px; overflow: hidden; }
+        .preview-left-view { background: #f5f5f5; display: flex; align-items: stretch; justify-content: center; min-height: 800px; position: relative; height: 100%; }
+        .preview-left-view img { width: 100%; height: 100%; object-fit: cover; border-radius: 0 0 0 20px; display: block; }
+        .preview-image-text { position: absolute; top: 100px; left: 0; width: 100%; text-align: center; color: #1D3557; z-index: 2; pointer-events: none; }
+        .preview-image-text h1 { font-size: 45px; margin: 0; font-weight: 700; }
+        .preview-image-text p { font-size: 20px; margin: 0.5rem 0 0 0; color: #444; font-weight: 400; }
+        .preview-right-view {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: #fff;
+            border-radius: 0 20px 20px 0;
+            box-shadow: 0 8px 32px rgba(29, 53, 87, 0.07);
+            position: relative;
+            text-align: center;
+        }
+        .preview-right-view h1 {
+            font-size: 2.4rem;
+            color: var(--color-orange, #FF8243);
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+        .preview-right-view h2 {
+            font-size: 1.3rem;
+            color: #1a1a1a;
+            margin-bottom: 1.2rem;
+            font-weight: 500;
+            opacity: 0.85;
+        }
+        .preview-right-view .divider {
+            height: 1px;
+            background: linear-gradient(90deg, #ffe8d6 0%, #ffb6b9 100%);
+            border: none;
+            margin: 1.5rem 0;
+            opacity: 0.5;
+        }
+        .preview-right-view p {
+            color: #444;
+            margin-bottom: 1.5rem;
+            font-size: 1.08rem;
+            line-height: 1.6;
+        }
+        .amounts {
+            margin-top: 9.5rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .amounts span {
+            display: inline-block;
+            background: var(--color-orange, #FF8243);
+            color: #fff;
+            border-radius: 8px;
+            padding: 0.7rem 1.5rem;
+            font-weight: 700;
+            font-size: 1.15rem;
+            box-shadow: 0 2px 8px rgba(255,130,67,0.08);
+            letter-spacing: 0.5px;
+            transition: background 0.2s;
+        }
+        .amounts span:hover {
+            background: #ffb6b9;
+            color: #1D3557;
+        }
+        .footer { width: 100%; color: #888; text-align: center; font-size: 0.95rem; padding: 1.5rem 0 1rem 0; margin-top: 2rem; }
+        @media (max-width: 900px) {
+            .preview-split-view { grid-template-columns: 1fr; }
+            .preview-left-view img { border-radius: 20px 20px 0 0; }
+            .preview-right-view {
+                border-radius: 0 0 20px 20px;
+                max-width: 100%;
+                padding: 2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="images/logo (1).png" alt="PledgeBear Logo">
+    </div>
+    <div class="main-content">
+        <div class="preview-split-view">
+            <div class="preview-left-view">
+                <img id="viewImage" src="" alt="Cause Image">
+                <div class="preview-image-text">
+                    <h1 id="viewImageCauseName"></h1>
+                    <p id="viewImageHeadline"></p>
+                </div>
+            </div>
+            <div class="preview-right-view">
+                <h1 id="viewCauseName"></h1>
+                <h2 id="viewHeadline"></h2>
+                <p id="viewOptionalText"></p>
+                <div class="amounts" id="viewAmounts"></div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        &copy; 2024 PledgeBear. All rights reserved. &bull; <a href="#" style="color:#888;text-decoration:underline;">Privacy Policy</a> &bull; <a href="#" style="color:#888;text-decoration:underline;">Contact</a>
+    </div>
+    <script>
+        const data = JSON.parse(localStorage.getItem('pledgePage'));
+        const pledgeBg = localStorage.getItem('pledgeBg');
+        if (data) {
+            document.getElementById('viewImage').src = data.image;
+            const previewLeft = document.querySelector('.preview-left-view');
+            if (!data.image || data.image === '' || data.image.includes('Imagepreview.png')) {
+                if (pledgeBg) {
+                    previewLeft.style.background = pledgeBg;
+                } else {
+                    previewLeft.style.background = data.bgColor || '#f5f5f5';
+                }
+                document.getElementById('viewImage').style.display = 'none';
+            }
+            const prefix = data.titlePrefix || '';
+            document.getElementById('viewCauseName').textContent = prefix ? `${prefix} ${data.causeName}` : data.causeName;
+            document.getElementById('viewHeadline').textContent = data.headline;
+            document.getElementById('viewOptionalText').textContent = data.optionalText;
+            document.getElementById('viewAmounts').innerHTML = data.amounts.map(a => `<span>R$${a}</span>`).join('');
+            document.getElementById('viewImageCauseName').textContent = data.causeName;
+            document.getElementById('viewImageHeadline').textContent = data.headline;
+        }
+    </script>
+</body>
+</html> 

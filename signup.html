@@ -7,6 +7,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
+
+    <!-- Google tag (gtag.js) --> 
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-73G4L1W7R6"></script> 
+    <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-73G4L1W7R6'); </script>
+
 </head>
 <body>
     <div class="signup-container">
@@ -73,19 +78,38 @@
                         </div>
 
                         <div class="form-content">
-                            <div class="form-group">
-                                <label for="pageImage">Add Image</label>
-                                <div class="image-upload-container">
-                                    <div class="replace-image-icon">
-                                        <i class="fas fa-sync-alt"></i>
+                            <div class="form-group" style="display: flex; align-items: center; gap: 1.5rem;">
+                                <div style="flex: 1;">
+                                    <label for="pageImage">Add Image</label>
+                                    <div class="image-upload-container">
+                                        <div class="replace-image-icon">
+                                            <i class="fas fa-sync-alt"></i>
+                                        </div>
+                                        <input type="file" id="pageImage" accept="image/*" class="image-upload">
+                                        <div class="image-upload-placeholder">
+                                            <i class="fas fa-image"></i>
+                                            <span>Click to upload image</span>
+                                            <small>Recommended size: 450x700</small>
+                                        </div>
+                                        <img id="imagePreview" class="image-preview" style="display: none;">
                                     </div>
-                                    <input type="file" id="pageImage" accept="image/*" class="image-upload">
-                                    <div class="image-upload-placeholder">
-                                        <i class="fas fa-image"></i>
-                                        <span>Click to upload image</span>
-                                        <small>Recommended size: 450x700</small>
+                                </div>
+                                <div style="flex: 0 0 120px; text-align: center;">
+                                    <label style="font-weight: 600; display: block; margin-bottom: 0.5rem;">Background</label>
+                                    <div class="background-grid">
+                                        <div class="bg-swatch bg-gradient" data-bg="linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%)" style="background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);"></div>
+                                        <div class="bg-swatch bg-gradient" data-bg="linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%)" style="background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);"></div>
+                                        <div class="bg-swatch bg-gradient" data-bg="linear-gradient(135deg, #fddb92 0%, #d1fdff 100%)" style="background: linear-gradient(135deg, #fddb92 0%, #d1fdff 100%);"></div>
+                                        <div class="bg-swatch bg-gradient" data-bg="linear-gradient(135deg, #f6d365 0%, #fda085 100%)" style="background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);"></div>
+                                        <div class="bg-swatch bg-gradient" data-bg="linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);"></div>
+                                        <div class="bg-swatch bg-gradient" data-bg="linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)" style="background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);"></div>
+                                        <div class="bg-swatch bg-gradient" data-bg="linear-gradient(135deg, #f093fb 0%, #f5576c 100%)" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"></div>
+                                        <div class="bg-swatch bg-gradient" data-bg="linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);"></div>
+                                        <div class="bg-swatch bg-custom" id="customColorSwatch">
+                                            <input type="color" id="bgColorPicker" aria-label="Custom color" />
+                                            <span class="color-picker-plus"><i class="fas fa-plus"></i></span>
+                                        </div>
                                     </div>
-                                    <img id="imagePreview" class="image-preview" style="display: none;">
                                 </div>
                             </div>
 
