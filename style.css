@@ -80,7 +80,10 @@
     justify-content: space-between;
     align-items: center;
   }
-  
+  .navbar a {
+    text-decoration: none;
+    color: var(--color-navy);
+  }
   .logo {
     height: 3rem;
     cursor: pointer;
@@ -102,8 +105,8 @@
     transition: color 0.3s;
   }
   
-  .nav-links button:hover {
-    color: var(--color-navy);
+  .nav-links button:hover, .nav-links button:hover a {
+    color: var(--color-orange);
   }
   
   .menu-toggle {
@@ -170,7 +173,7 @@
   
   .bear-button.primary:hover {
     background-color: #ff6a20;
-    box-shadow: 0 6px 20px rgba(255, 130, 67, 0.3);
+    color: var(--color-navy);
   }
   
   .bear-button.secondary {
