@@ -209,10 +209,37 @@ step2Button.addEventListener('click', () => {
         return;
     }
 
-    step2.classList.remove('active');
-    step3.classList.add('active');
-    document.querySelectorAll('.step')[1].classList.add('completed', 'inactive');
-    document.querySelectorAll('.step')[2].classList.remove('inactive');
+    // Salvar dados do formulário no localStorage
+    const causeName = document.getElementById('causeName')?.value || '';
+    const headline = document.getElementById('headlineText')?.value || '';
+    const optionalText = document.getElementById('optionalText')?.value || '';
+    let image = '';
+    const imagePreview = document.getElementById('imagePreview');
+    const previewImage = document.getElementById('previewImage');
+    if (imagePreview && imagePreview.style.display !== 'none' && imagePreview.src) {
+        image = imagePreview.src;
+    } else if (previewImage && previewImage.src) {
+        image = previewImage.src;
+    }
+    const amounts = [
+        document.getElementById('donationAmount1')?.value || '',
+        document.getElementById('donationAmount2')?.value || '',
+        document.getElementById('donationAmount3')?.value || ''
+    ];
+    const titlePrefix = document.getElementById('titlePrefix')?.value || '';
+    const bgColor = document.getElementById('bgColorPicker')?.value || '';
+    localStorage.setItem('pledgePage', JSON.stringify({
+        causeName,
+        headline,
+        optionalText,
+        image,
+        amounts,
+        titlePrefix,
+        bgColor
+    }));
+
+    // Redirecionar para a nova página
+    window.location.href = 'view.html';
 });
 
 // Step 2: Verification code input handler
@@ -433,15 +460,19 @@ paymentButtons.forEach(button => {
     });
 });
 
-// Step 3: Publish button handler
+// Step 3: Publish button handler (finaliza e abre a página do usuário)
 publishButton.addEventListener('click', () => {
     if (!causeName.value) {
         alert('Please enter a cause name');
         return;
     }
 
-    if (!imagePreview.src || imagePreview.src.includes('data:image/svg+xml')) {
-        alert('Please upload an image');
+    // Permitir avançar se houver imagem OU cor de fundo escolhida
+    const bgColorPicker = document.getElementById('bgColorPicker');
+    const hasImage = imagePreview.src && imagePreview.style.display !== 'none' && !imagePreview.src.includes('svg+xml');
+    const hasBgColor = bgColorPicker && bgColorPicker.value && bgColorPicker.value !== '#f5f5f5';
+    if (!hasImage && !hasBgColor) {
+        alert('Please upload an image or choose a background color');
         return;
     }
 
@@ -591,4 +622,101 @@ if (headlineInput && previewImageHeadline) {
     headlineInput.addEventListener('input', function() {
         previewImageHeadline.textContent = this.value || 'Headline text here';
     });
-} 
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    const bgColorPicker = document.getElementById('bgColorPicker');
+    const previewImageContainer = document.querySelector('.preview-image-container');
+    const previewImage = document.getElementById('previewImage');
+    const imagePreview = document.getElementById('imagePreview');
+
+    function updatePreviewBg() {
+        // Se não há imagem carregada, aplica a cor de fundo
+        const hasImage = (imagePreview && imagePreview.style.display !== 'none' && imagePreview.src && !imagePreview.src.includes('svg+xml')) ||
+                         (previewImage && previewImage.src && !previewImage.src.includes('svg+xml') && !previewImage.src.includes('Imagepreview.png'));
+        if (!hasImage && bgColorPicker && previewImageContainer) {
+            previewImageContainer.style.background = bgColorPicker.value;
+            if (previewImage) previewImage.style.display = 'none';
+        } else if (previewImageContainer) {
+            previewImageContainer.style.background = '';
+            if (previewImage) previewImage.style.display = '';
+        }
+    }
+
+    if (bgColorPicker) {
+        bgColorPicker.addEventListener('input', updatePreviewBg);
+    }
+    if (imagePreview) {
+        imagePreview.addEventListener('load', updatePreviewBg);
+    }
+    if (previewImage) {
+        previewImage.addEventListener('load', updatePreviewBg);
+    }
+    updatePreviewBg();
+});
+
+// Atualizar preview e salvar escolha ao clicar em qualquer círculo de cor ou gradiente
+function setupBackgroundGrid() {
+    const swatches = document.querySelectorAll('.bg-swatch');
+    const previewImageContainer = document.querySelector('.preview-image-container');
+    const previewImage = document.getElementById('previewImage');
+    const imagePreview = document.getElementById('imagePreview');
+    const customColorInput = document.getElementById('bgColorPicker');
+    const customColorSwatch = document.getElementById('customColorSwatch');
+
+    function setBg(bg) {
+        if (previewImageContainer) previewImageContainer.style.background = bg;
+        if (previewImage) previewImage.style.display = 'none';
+        if (imagePreview) imagePreview.style.display = 'none';
+        localStorage.setItem('pledgeBg', bg);
+    }
+
+    swatches.forEach(swatch => {
+        if (swatch.classList.contains('bg-custom')) return;
+        swatch.addEventListener('click', function() {
+            swatches.forEach(s => s.classList.remove('selected'));
+            this.classList.add('selected');
+            setBg(this.getAttribute('data-bg'));
+            if (customColorSwatch) customColorSwatch.style.background = '#fff';
+        });
+    });
+
+    if (customColorInput && customColorSwatch) {
+        customColorInput.addEventListener('input', function() {
+            swatches.forEach(s => s.classList.remove('selected'));
+            customColorSwatch.classList.add('selected');
+            customColorSwatch.style.background = customColorInput.value;
+            setBg(customColorInput.value);
+        });
+        customColorSwatch.addEventListener('click', function(e) {
+            customColorInput.click();
+        });
+    }
+
+    // Ao carregar, mostrar a imagem do src por padrão
+    if (previewImage) previewImage.style.display = '';
+    if (imagePreview) imagePreview.style.display = '';
+    if (previewImageContainer) previewImageContainer.style.background = '';
+
+    // Se já tem escolha salva, marcar no grid, mas não esconder a imagem
+    const saved = localStorage.getItem('pledgeBg');
+    if (saved) {
+        let found = false;
+        swatches.forEach(s => {
+            if (s.getAttribute('data-bg') === saved) {
+                s.classList.add('selected');
+                previewImageContainer.style.background = saved;
+                found = true;
+            }
+        });
+        if (!found && customColorSwatch) {
+            customColorSwatch.classList.add('selected');
+            customColorSwatch.style.background = saved;
+            previewImageContainer.style.background = saved;
+        }
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    setupBackgroundGrid();
+}); 
