@@ -801,7 +801,10 @@
   .login-link a:hover {
     text-decoration: underline;
   }
-  
+  /* About Us Page */
+  .about-us-section {
+    margin: 0px 0px 50px;
+  }
   /* Contact Page */
   #copyMessage,
   #copyMessage2,
