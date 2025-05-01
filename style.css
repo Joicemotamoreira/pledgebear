@@ -817,9 +817,12 @@
   }
   
   .footer-logo {
-    height: 4rem;
-    border-radius: 0.5rem;
-    display: inline-block;
+    display: grid;
+    gap: 30px;
+    grid-template-columns: 1fr 1fr;
+    width: 400px;
+    margin-bottom: 15px;
+    align-items: center;
   }
   .footer-logo img {
     width: 200px;
