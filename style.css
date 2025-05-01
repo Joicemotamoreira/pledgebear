@@ -847,6 +847,14 @@
   .footer-certifications img {
     width: 40px;
   }
+  .footer-address h4 {
+    margin-bottom: 16px;
+    font-size: 18px;
+  }
+  .footer-address p {
+    font-weight: normal;
+    color: rgba(255, 255, 255, 0.7);
+  }
   .social-links {
     display: flex;
     gap: 1rem;
@@ -904,6 +912,10 @@
     color: rgba(255, 255, 255, 0.5);
     margin-bottom: 1rem;
     font-size: 12px;
+  }
+  .footer-bottom a {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.5);
   }
   .footer-bottom span {
     font-size: 12px;
@@ -1050,7 +1062,7 @@
     }
     
     .footer-grid {
-      grid-template-columns: 2fr 1fr 1fr;
+      grid-template-columns: 2fr 2fr 1fr 1fr;
     }
     
     .footer-brand,
