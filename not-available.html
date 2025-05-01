@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>PledgeBear - Friendly Support, Made Simple</title>
+
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
+  <meta name="description" content="Launch your free contribution page in minutes with PledgeBear. Ideal for creators, non-profits, and small businesses to accept online support effortlessly across the UK, US, and EEA.">
+  <meta name="keywords" content="online support, online donations, contributions, crowdfunding, creators, non-profits, charities, small businesses, donation platform, receive support, PledgeBear, Flip-Pay, UK, US, EEA">
+  <meta name="author" content="PledgeBear">
+  <meta name="robots" content="index, follow">
+  <meta http-equiv="Content-Language" content="en">
+
+  <meta property="og:title" content="PledgeBear - Simple & Friendly Online Support for Everyone">
+  <meta property="og:description" content="The easiest way for creators, non-profits, and small businesses to accept online support. Get your free page in minutes across the UK, US & EEA!">
+  <meta property="og:image" content="[YOUR_SHARE_IMAGE_URL_HERE - e.g., https://www.pledgebear.com/images/logo-social.png]">
+  <meta property="og:url" content="https://www.pledgebear.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_GB"> <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:site_name" content="PledgeBear">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@YourTwitterHandle (optional)">
+  <meta name="twitter:creator" content="@YourTwitterHandle (optional)">
+  <meta name="twitter:title" content="PledgeBear - Streamlined & Friendly Online Support Platform">
+  <meta name="twitter:description" content="Accept online contributions quickly and easily. Perfect for creators, charities, and businesses across the UK, US, and EEA. Start for free!">
+  <meta name="twitter:image" content="[YOUR_TWITTER_IMAGE_URL_HERE - e.g., https://www.pledgebear.com/images/logo-twitter.png]">
+
+  <link rel="canonical" href="https://www.pledgebear.com/">
+  <link rel="alternate" hreflang="en-GB" href="https://www.pledgebear.com/">
+  <link rel="alternate" hreflang="en-US" href="https://www.pledgebear.com/">
+  <link rel="alternate" hreflang="en-IE" href="https://www.pledgebear.com/">
+  <link rel="alternate" hreflang="en-EU" href="https://www.pledgebear.com/">
+  
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+  <!-- Navegação -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <div class="logo" onclick="scrollToSection('home')">
+        <img src="images/logo (1).png" alt="PledgeBear Logo">
+      </div>
+      
+      <div class="nav-links">
+        <button onclick="scrollToSection('how-it-works')">How It Works</button>
+        <button onclick="scrollToSection('features')">Features</button>
+        <button onclick="scrollToSection('testimonials')">Testimonials</button>
+        <button class="bear-button primary" onclick="scrollToSection('get-started')">
+          Get Started
+        </button>
+      </div>
+      
+      <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+    
+    <!-- Menu Mobile -->
+    <div class="mobile-menu" id="mobile-menu">
+      <div class="mobile-links">
+        <button onclick="scrollToSection('how-it-works')">How It Works</button>
+        <button onclick="scrollToSection('features')">Features</button>
+        <button onclick="scrollToSection('testimonials')">Testimonials</button>
+        <button class="bear-button primary full-width" onclick="scrollToSection('get-started')">
+          Get Started
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text animate" data-animation="slide-in-left">
+          <h1>Sorry, PledgeBear isn’t available in your country just yet.</h1>
+          <p>Follow us on social media to be the first to know when PledgeBear is available near you.</p>
+
+        </div>
+        
+        <div class="hero-image animate" data-animation="fade-in" data-delay="600">
+          <div class="bear-animation">
+            <div class="bear-image">
+              <img src="images/SadBear.png" alt="Bear">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </section>
+
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="images/logo-white.png" alt="PledgeBear Logo">
+          </div>
+          <p>PledgeBear helps creators and causes accept contributions from their supporters in a friendly, simple way.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a onclick="scrollToSection('how-it-works')">How It Works</a></li>
+            <li><a onclick="scrollToSection('features')">Features</a></li>
+            <li><a onclick="scrollToSection('testimonials')">Testimonials</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-links">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>© 2025 PledgeBear.com • Powered by Flip-Pay. All rights reserved.</p>
+        <div class="certifications">
+          <span>Privacy Policy</span>
+          <span>•</span>
+          <span>Terms of Service</span>
+          <span>•</span>
+          <span>Help Center</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="index-script.js"></script>
+</body>
+</html>
