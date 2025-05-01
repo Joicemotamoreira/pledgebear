@@ -907,7 +907,12 @@
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     text-align: center;
   }
-  
+  .footer-bottom img {
+    width: 120px;
+    margin-left: 10px;
+    margin-bottom: 2px;
+    opacity: 0.5;
+  }
   .footer-bottom p {
     color: rgba(255, 255, 255, 0.5);
     margin-bottom: 1rem;
@@ -919,6 +924,10 @@
   }
   .footer-bottom span {
     font-size: 12px;
+  }
+  .powered-by-fp {
+    display: flex;
+    align-items: center;
   }
   .certifications {
     display: flex;
