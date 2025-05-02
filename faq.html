@@ -363,7 +363,10 @@
 
         // Toggle current answer
         item.classList.toggle('active');
-        answer.style.maxHeight = isOpen ? '0px' : answer.scrollHeight + 'px';
+        
+        // Calculate total height including padding
+        const padding = 24; // 1.2rem = 24px
+        answer.style.maxHeight = isOpen ? '0px' : (answer.scrollHeight + padding * 2) + 'px';
       }
 
       // Add click events to tabs
