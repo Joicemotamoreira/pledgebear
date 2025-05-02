@@ -1258,13 +1258,13 @@
 }
 
 .faq-question:hover {
-  background-color: #f8f9fa;
+  background-color: var(--color-light-bg);
 }
 
 .faq-question h3 {
   margin: 0;
   font-size: 1.1rem;
-  color: #2d3436;
+  color: var(--color-navy);
 }
 
 .faq-question i {
@@ -1281,7 +1281,7 @@
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s ease, padding 0.3s ease;
-  background: #f8f9fa;
+  background: var(--color-light-bg);
 }
 
 .faq-item.active .faq-answer {
@@ -1290,13 +1290,13 @@
 
 .faq-answer p {
   margin: 0 0 1rem 0;
-  color: #636e72;
+  color: rgba(29, 53, 87, 0.8);
   line-height: 1.6;
 }
 
 .faq-answer ul, .faq-answer ol {
   margin: 0 0 1rem 1.5rem;
-  color: #636e72;
+  color: rgba(29, 53, 87, 0.8);
 }
 
 .faq-answer li {
