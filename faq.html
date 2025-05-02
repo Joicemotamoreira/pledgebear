@@ -366,5 +366,65 @@
   </footer>
 
   <script src="index-script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const tabs = document.querySelectorAll('.category-tab');
+      const sections = document.querySelectorAll('.faq-section');
+      const questions = document.querySelectorAll('.faq-question');
+
+      // Function to show a section
+      function showSection(sectionId) {
+        sections.forEach(section => {
+          section.style.display = section.id === sectionId ? 'block' : 'none';
+        });
+      }
+
+      // Function to toggle FAQ answer
+      function toggleAnswer(question) {
+        const item = question.parentElement;
+        const answer = item.querySelector('.faq-answer');
+        const isOpen = item.classList.contains('active');
+
+        // Close all answers in the same section
+        const section = item.closest('.faq-section');
+        section.querySelectorAll('.faq-item').forEach(faqItem => {
+          if (faqItem !== item) {
+            faqItem.classList.remove('active');
+            faqItem.querySelector('.faq-answer').style.maxHeight = '0px';
+          }
+        });
+
+        // Toggle current answer
+        item.classList.toggle('active');
+        
+        // Calculate total height including padding
+        const padding = 24; // 1.2rem = 24px
+        answer.style.maxHeight = isOpen ? '0px' : (answer.scrollHeight + padding * 2) + 'px';
+      }
+
+      // Add click events to tabs
+      tabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+          tabs.forEach(t => t.classList.remove('active'));
+          this.classList.add('active');
+          showSection(this.getAttribute('data-category'));
+          
+          // Close all answers when changing category
+          document.querySelectorAll('.faq-item').forEach(item => {
+            item.classList.remove('active');
+            item.querySelector('.faq-answer').style.maxHeight = '0px';
+          });
+        });
+      });
+
+      // Add click events to questions
+      questions.forEach(question => {
+        question.addEventListener('click', () => toggleAnswer(question));
+      });
+
+      // Show first section by default
+      tabs[0]?.click();
+    });
+  </script>
 </body>
 </html>
