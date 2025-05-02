@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>FAQ - PledgeBear</title>
+
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <meta name="description" content="Frequently asked questions about PledgeBear - the simple way to accept online support for creators, non-profits, and small businesses.">
+  <meta name="keywords" content="PledgeBear FAQ, online support, donations, contributions, crowdfunding, creators, non-profits, charities, small businesses">
+  <meta name="author" content="PledgeBear">
+  <meta name="robots" content="index, follow">
+  <meta http-equiv="Content-Language" content="en">
+
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-73G4L1W7R6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'G-73G4L1W7R6');
+    </script>
+
+  <style>
+    .hero {
+        padding-bottom: 0px !important;
+    }
+</style>
+</head>
+
+<body>
+  <!-- Navegação -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <div class="logo" onclick="scrollToSection('home')">
+        <a href="index.html"><img src="images/logo (1).png" alt="PledgeBear Logo"></a>
+      </div>
+      
+      <div class="nav-links">
+        <button><a href="index.html">Home</a></button>
+        <button><a href="about-us.html">About Us</a></button>
+        <button><a href="contact.html">Contact Us</a></button>
+        <button class="bear-button primary">
+          <a href="">Get Started</a>
+        </button>
+      </div>
+      
+      <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+    
+    <!-- Menu Mobile -->
+    <div class="mobile-menu" id="mobile-menu">
+      <div class="mobile-links">
+        <button><a href="index.html">Home</a></button>
+        <button><a href="about-us.html">About Us</a></button>
+        <button><a href="contact.html">Contact Us</a></button>
+        <button class="bear-button primary">
+          <a href="">Get Started</a>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  
+  <!-- FAQ Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text animate" data-animation="slide-in-left">
+            <h1>Frequently Asked <span class="orange">Questions</span></h1>
+            <p>Everything you need to know about PledgeBear</p>
+        </div>
+
+        <div class="hero-image animate" data-animation="fade-in" data-delay="600">
+          <div class="bear-animation">
+            <div class="bear-image">
+              <img src="images/SupportBear.png" alt=" Contact Bear">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Categories -->
+  <section class="faq-categories">
+    <div class="container">
+      <div class="category-tabs">
+        <button class="category-tab active" data-category="general">
+          <i class="fas fa-question-circle"></i>General
+        </button>
+        <button class="category-tab" data-category="account">
+          <i class="fas fa-user-circle"></i>Account & Setup
+        </button>
+        <button class="category-tab" data-category="payments">
+          <i class="fas fa-credit-card"></i>Payments & Fees
+        </button>
+        <button class="category-tab" data-category="features">
+          <i class="fas fa-star"></i>Features & Tools
+        </button>
+      </div>
+
+      <!-- General Questions -->
+      <div class="faq-section" id="general">
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>What is PledgeBear?</h3>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>PledgeBear is a simple, user-friendly platform that helps creators, non-profits, and small businesses accept online support from their community. We make it easy to create a beautiful contribution page in minutes, with no technical skills required.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>Who can use PledgeBear?</h3>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>PledgeBear is perfect for:</p>
+            <ul>
+              <li>Content creators (artists, writers, musicians, podcasters)</li>
+              <li>Non-profits and charities</li>
+              <li>Small businesses and freelancers</li>
+              <li>Community organizations</li>
+              <li>Anyone looking to accept online support in a simple way</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>Is PledgeBear available in my country?</h3>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>PledgeBear is currently available in the UK, US, and EEA (European Economic Area). We're working on expanding to more regions soon!</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Account & Setup -->
+      <div class="faq-section" id="account">
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>How do I create my PledgeBear page?</h3>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Creating your page is simple:</p>
+            <ol>
+              <li>Sign up for a free account</li>
+              <li>Choose your unique page name (pledgebear.com/YourName)</li>
+              <li>Customize your page with your image and message</li>
+              <li>Connect your Stripe account</li>
+              <li>Start sharing with your supporters!</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>Do I need a Stripe account?</h3>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Yes, you'll need a Stripe account to receive payments. If you don't have one, we'll guide you through the simple setup process. Stripe is our secure payment processor and ensures your supporters' payments are handled safely.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>Can I customize my page?</h3>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Absolutely! You can customize your page with:</p>
+            <ul>
+              <li>Your profile picture or logo</li>
+              <li>Custom colors and branding</li>
+              <li>Personal message to supporters</li>
+              <li>Suggested contribution amounts</li>
+              <li>Thank you messages</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Payments & Fees -->
+      <div class="faq-section" id="payments">
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>What are PledgeBear's fees?</h3>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>PledgeBear charges a simple 4% platform fee per successful contribution. There are no monthly fees or setup costs. Standard Stripe payment processing fees also apply:</p>
+            <ul>
+              <li>2.9% + 30¢ (US)</li>
+              <li>1.5% + €0.25 (EEA)</li>
+              <li>2.5% + €0.25 (UK)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>How do I receive my contributions?</h3>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>All contributions go directly to your connected Stripe account. You can transfer funds to your bank account according to your Stripe payout schedule. Most users receive their funds within 2-7 business days.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>What payment methods do you accept?</h3>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Through Stripe, we accept all major credit and debit cards, including Visa, Mastercard, American Express, and more. We also support Apple Pay and Google Pay for mobile users.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Features & Tools -->
+      <div class="faq-section" id="features">
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>What features does PledgeBear offer?</h3>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>PledgeBear includes several helpful features:</p>
+            <ul>
+              <li>Customizable contribution page</li>
+              <li>QR code generation for easy sharing</li>
+              <li>Embeddable widget for your website</li>
+              <li>Automatic thank you messages</li>
+              <li>Referral program for supporters</li>
+              <li>Analytics dashboard</li>
+              <li>Support for one-time and recurring contributions</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+              <h3>How can I share my PledgeBear page?</h3>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>Sharing your PledgeBear page is easy! You can copy and share your unique link, post it directly to social media, or generate a QR code to display on flyers, screens, or anywhere your supporters might see it.</p>
+            </div>
+          </div>
+          
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <h3>Is PledgeBear mobile-friendly?</h3>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>Yes! Your PledgeBear page is fully responsive and works great on any device. Supporters can view your page, scan your QR code, and make contributions seamlessly from their phones or tablets—no app needed.</p>
+            </div>
+          </div>
+          
+      </div>
+    </div>
+  </section>
+
+  <!-- Still Have Questions Section -->
+  <section class="contact-cta">
+    <div class="container">
+      <div>
+        <h2>Still Have Questions?</h2>
+        <p>We're here to help! Contact our friendly support team.</p>
+        <button class="bear-button primary lg" onclick="window.location.href='contact.html'">
+          Contact Support
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="images/logo-white.png" alt="PledgeBear Logo">
+          </div>
+          <p>PledgeBear helps creators and causes accept contributions from their supporters in a friendly, simple way.</p>
+          <div class="social-links">
+            <a href="https://x.com/Pledgebear" target="_blank"><i class="fab fa-x-twitter"></i></a>
+            <a href="https://www.instagram.com/pledgebear/?utm_source=ig_web_button_share_sheet" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=61575692015755" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.linkedin.com/company/pledge-bear/?lipi=urn%3Ali%3Apage%3Ad_flagship3_search_srp_companies%3BwJSTuphZQtqk4nyOpZSG6A%3D%3D" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://bsky.app/profile/pledgebear.bsky.social" target="_blank"><i class="fa-brands fa-bluesky"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-address">
+          <h4>Contact Info</h4>
+          <div>
+            <p>International Micro Payment Ventures Ltd, IFSC House, Custom House Quay, Dublin, Ireland, D01 R2P9</p>
+          </div>
+          <div class="footer-certifications">
+            <img src="images/ISO.webp" alt="ISO 27001 certification logo">
+            <img src="images/SOC.webp" alt="SOC 2 compliance logo">
+            <img src="images/GDPR.webp" alt="GDPR compliance certification logo">
+            <img src="images/pci.webp" alt="PCI DSS compliance certification logo">
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a onclick="scrollToSection('how-it-works')">How It Works</a></li>
+            <li><a onclick="scrollToSection('features')">Features</a></li>
+            <li><a onclick="scrollToSection('testimonials')">Testimonials</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-links">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="terms-and-conditions.html">Terms and Conditions</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="powered-by-fp">
+          <p>© 2025 PledgeBear.com • Powered by <a href="https://www.flip-pay.com/" target="_blank">Flip-Pay</a>. All rights reserved.</p>
+          <a href="https://www.flip-pay.com/" target="_blank"><img src="images/logo-light.png" alt="Flip-Pay Logo"></a>
+        </div>
+        <div class="certifications">
+          <span><a href="privacy-policy.html">Privacy Policy</a></span>
+          <span>•</span>
+          <span><a href="terms-and-conditions.html">Terms and Conditions</a></span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="index-script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const tabs = document.querySelectorAll('.category-tab');
+      const sections = document.querySelectorAll('.faq-section');
+      const questions = document.querySelectorAll('.faq-question');
+
+      // Function to show a section
+      function showSection(sectionId) {
+        sections.forEach(section => {
+          section.style.display = section.id === sectionId ? 'block' : 'none';
+        });
+      }
+
+      // Function to toggle FAQ answer
+      function toggleAnswer(question) {
+        const item = question.parentElement;
+        const answer = item.querySelector('.faq-answer');
+        const isOpen = item.classList.contains('active');
+
+        // Close all answers in the same section
+        const section = item.closest('.faq-section');
+        section.querySelectorAll('.faq-item').forEach(faqItem => {
+          if (faqItem !== item) {
+            faqItem.classList.remove('active');
+            faqItem.querySelector('.faq-answer').style.maxHeight = '0px';
+          }
+        });
+
+        // Toggle current answer
+        item.classList.toggle('active');
+        
+        // Calculate total height including padding
+        const padding = 24; // 1.2rem = 24px
+        answer.style.maxHeight = isOpen ? '0px' : (answer.scrollHeight + padding * 2) + 'px';
+      }
+
+      // Add click events to tabs
+      tabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+          tabs.forEach(t => t.classList.remove('active'));
+          this.classList.add('active');
+          showSection(this.getAttribute('data-category'));
+          
+          // Close all answers when changing category
+          document.querySelectorAll('.faq-item').forEach(item => {
+            item.classList.remove('active');
+            item.querySelector('.faq-answer').style.maxHeight = '0px';
+          });
+        });
+      });
+
+      // Add click events to questions
+      questions.forEach(question => {
+        question.addEventListener('click', () => toggleAnswer(question));
+      });
+
+      // Show first section by default
+      tabs[0]?.click();
+    });
+  </script>
+</body>
+</html> 
