@@ -1324,7 +1324,13 @@
   margin-bottom: 0.5rem;
   line-height: 1.6;
 }
-
+.contact-cta {
+  text-align: center;
+  padding: 100px 50px;
+}
+.contact-cta h2, .contact-cta p {
+  margin-bottom: 10px;
+}
 /* Responsive Styles */
 @media (max-width: 768px) {
   .faq-hero {
