@@ -1201,27 +1201,7 @@
   }
 
   /* FAQ Page Styles */
-.faq-hero {
-  padding: 80px 0 40px;
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-  text-align: center;
-}
 
-.faq-hero .section-header {
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.faq-hero h1 {
-  font-size: 2.5rem;
-  color: #2d3436;
-  margin-bottom: 1rem;
-}
-
-.faq-hero p {
-  font-size: 1.2rem;
-  color: #636e72;
-}
 
 .faq-categories {
   padding: 60px 0;
