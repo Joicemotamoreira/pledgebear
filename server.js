@@ -3,10 +3,12 @@ const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
 const cors = require('cors');
 const path = require('path');
+
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(cors()); // Permite que outros sites (como seu front-end) usem essa API
+
 // Configure body-parser to handle JSON and URL-encoded data
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
