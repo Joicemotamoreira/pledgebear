@@ -22,9 +22,6 @@ const transporter = nodemailer.createTransport({
   auth: {
     user: 'contactform@mg.eu.pledgebear.com',
     pass: process.env.MAILGUN_SMTP_PASSWORD || 'your-smtp-password-here' // Fallback for testing
-  },
-  tls: {
-    rejectUnauthorized: false // Only for testing, remove in production
   }
 });
 
