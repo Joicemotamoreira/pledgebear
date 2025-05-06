@@ -7,11 +7,19 @@ document.addEventListener('DOMContentLoaded', () => {
   
       // Get form data
       const formData = {
-        name: document.getElementById('name').value,
-        email: document.getElementById('email').value,
-        subject: document.getElementById('subject').value,
-        message: document.getElementById('message').value
+        name: document.getElementById('name').value.trim(),
+        email: document.getElementById('email').value.trim(),
+        subject: document.getElementById('subject').value.trim(),
+        message: document.getElementById('message').value.trim()
       };
+  
+      // Validate form data
+      if (!formData.name || !formData.email || !formData.subject || !formData.message) {
+        formStatus.textContent = 'Please fill in all required fields.';
+        formStatus.className = 'form-status error';
+        formStatus.style.display = 'block';
+        return;
+      }
   
       try {
         // Show loading state
@@ -19,11 +27,12 @@ document.addEventListener('DOMContentLoaded', () => {
         formStatus.className = 'form-status';
         formStatus.style.display = 'block';
   
-        // Send the form data
+        // Send the form data to the same server
         const response = await fetch('/send-email', {
           method: 'POST',
           headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
           },
           body: JSON.stringify(formData)
         });
