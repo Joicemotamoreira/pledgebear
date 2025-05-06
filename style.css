@@ -260,7 +260,7 @@ img {
   position: relative;
   z-index: 10;
   max-width: 24rem;
-  margin: 0 auto;
+  margin: 0;
 }  
 
 /* About Section */
@@ -1131,6 +1131,7 @@ img {
   
   .hero-image {
     width: 50%;
+
   }
   
   .hero h1 {
