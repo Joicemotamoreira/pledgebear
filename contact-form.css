@@ -1,0 +1,234 @@
+:root {
+    --color-navy: #1D3557;
+    --color-orange: #FF8243;
+    --color-pink: #FFB6B9;
+    --color-light-bg: #fdfaf6;
+    --color-cream: #FFE8D6;
+    --font-nunito: 'Nunito', sans-serif;
+  }
+
+.form-and-contact-details-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 1200px;
+    margin: auto;
+    grid-gap: 30px;
+}
+
+.contact-details-wrap {
+    padding: 80px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: auto;
+}
+.contact-details-container {
+    padding: 80px 0;
+}
+.contact-form-section {
+        padding: 80px 0;
+    }
+  
+  .form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 40px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-container h2 {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+  }
+  
+  .form-group input:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-orange);
+  }
+  
+  .form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+  
+  .bear-button.primary.contact-button {
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 10px;
+  }
+  
+  .form-status {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    display: none;
+  }
+  
+  .form-status.success {
+    display: block;
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+  }
+  
+  .form-status.error {
+    display: block;
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+  }
+  @media (max-width: 1220px) {
+    .contact-details-wrap {
+        padding: 0px 30px 0px 0px;
+    }
+    .contact-details-grid {
+        grid-template-columns: 1fr 1fr;
+        margin: 0;
+        gap: 20px;
+    }
+  }
+  @media (max-width: 768px) {
+    .form-container {
+      padding: 20px;
+    }
+    .form-and-contact-details-wrap {
+        grid-template-columns: 1fr;
+    }
+    .contact-details-wrap {
+        padding: 20px;
+    }
+    .contact-form-section {
+        padding: 20px;
+    }
+    .contact-details-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+  }
+
+/* Notification Popup Styles */
+.notification-popup {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    background: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    display: none;
+    min-width: 300px;
+    max-width: 400px;
+    animation: slideIn 0.3s ease-out;
+}
+
+.notification-popup.success {
+    border-left: 4px solid #4CAF50;
+}
+
+.notification-popup.error {
+    border-left: 4px solid #f44336;
+}
+
+.notification-popup.show {
+    display: block;
+}
+
+.notification-popup .notification-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.notification-popup .icon {
+    font-size: 24px;
+    flex-shrink: 0;
+}
+
+.notification-popup.success .icon {
+    color: #4CAF50;
+}
+
+.notification-popup.error .icon {
+    color: #f44336;
+}
+
+.notification-popup .message {
+    flex-grow: 1;
+}
+
+.notification-popup .title {
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: #333;
+}
+
+.notification-popup .description {
+    color: #666;
+    font-size: 14px;
+}
+
+.notification-popup .close-button {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: none;
+    border: none;
+    color: #999;
+    cursor: pointer;
+    padding: 4px;
+    font-size: 16px;
+    line-height: 1;
+}
+
+.notification-popup .close-button:hover {
+    color: #666;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+} 
