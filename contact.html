@@ -13,6 +13,7 @@
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <link rel="icon" href="images/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="contact-form.css">
   <!-- flaticon css -->
   <link rel="stylesheet" type="text/css" href="assets/fonts/flaticon.css">
 
@@ -114,179 +115,208 @@
       </div>
     </div>
 
+    <div>
+        <!-- Contact Form Section -->
+  <div class="contact-form-section">
     <div class="container">
-
-      <div class="contact-details-grid">
-                                    
-        <div class="address-box">
-            <div class="address-icon">
-                <i class="fas fa-phone"></i>   
-            </div>
-            <div class="address-text" style="position: relative">
-                <span>Phone: (EU)</span>
-                <div class="contact-details-and-copy">
-                    <a id="euPhoneNumber">+353 1 605 4343</a>
-                    <img class="copyIcon" src="images/copy-icon.png" id="eu-Phone-Number-Copy" alt="Copy phone number">
-                    <span style="position: relative"> 
-                        <span id="copyMessage2" style="display: none">Copied!</span>
-                    </span>
-                </div>
-                
-            </div>  
-        </div>
-        <div class="address-box">
-            <div class="address-icon">
-                <i class="fas fa-phone"></i>  
-            </div>
-            <div class="address-text" style="position: relative">
-                <span>Phone: (US)</span>
-                <div class="contact-details-and-copy">
-                    <a  id="usPhoneNumber">+1 646 893 0809</a>
-                    <img class="copyIcon" src="images/copy-icon.png" id="us-Phone-Number-copy"alt="Copy phone number">
-                    <span style="position: relative"> 
-                        <span id="copyMessage3" style="display: none">Copied!</span>
-                    </span>
-                </div>
-            </div>
-        </div>
-        <div class="address-box">
-            <div class="address-icon">
-              <i class="fas fa-envelope"></i>                                        
-            </div>
-            <div class="address-text" style="position: relative">
-                <span>Email:</span>
-                <div class="contact-details-and-copy">
-                    <a  id="email-link" href="mailto:support@pledgebear.com">support@pledgebear.com</a>
-                    <img class="copyIcon" src="images/copy-icon.png" id="email-link-copy" alt="Copy email address">
-                    <span style="position: relative"> 
-                        <span id="copyMessage" style="display: none">Copied!</span>
-                    </span>
-                </div>
-            </div>
-        </div>
-    </div> 
-
-    <br>
-    <br>
-
-    <div class="maps-location-grid">
-      <div>
-          <div class="contact-address-text">    
-              <div>EU Office:</div>
-              <div class="contact-details-and-copy">
-                  <a id="eu-office">IFSC House, Custom House Quay, Dublin, Ireland, D01 R2P9</a>
-                  <img class="copyIcon" src="images/copy-icon.png" id="eu-office-copy" alt="Copy EU Office address">
-                  <span style="position: relative"> 
-                      <span id="copyMessage4" style="display: none">Copied!</span>
-                  </span>
-              </div>
+      <div class="form-container">
+        <h2>Send us a Message</h2>
+        <form id="contactForm" action="/send-email" method="POST">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required>
           </div>
-          <div>
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2381.7027903088483!2d-6.2550661067254705!3d53.348576303115266!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48670e8e5058f209%3A0xd708581f430ba82c!2sFlip-Pay!5e0!3m2!1sen!2sie!4v1736946812773!5m2!1sen!2sie" width="100%" height="100%" style="border:1px solid lightgray; box-shadow: 10px 10px 20px rgba(248, 137, 0, 0.1);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required>
           </div>
+          
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+          
+          <button type="submit" class="bear-button primary">Send Message</button>
+        </form>
+        <div id="formStatus" class="form-status"></div>
       </div>
-      <div>
-          <div class="contact-address-text" >
-              <div>US Office:</div>
-              <div class="contact-details-and-copy">
-                  <a id="us-office">183 Madison Ave, Suite 1101, New York, NY 10016, United States</a>
-                  <img class="copyIcon" src="images/copy-icon.png" id="us-office-copy" alt="Copy US Office address">
-                  <span style="position: relative"> 
-                      <span id="copyMessage5" style="display: none">Copied!</span>
-                  </span>
-              </div>
-              
-          </div>
-          <div>
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.8127810586752!2d-73.9877930235852!3d40.74414493564653!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a7b620fb63%3A0x9e3bc7ad0a467c72!2s83%20Madison%20Ave%2C%20New%20York%2C%20NY%2010016%2C%20USA!5e0!3m2!1sen!2sie!4v1736946888696!5m2!1sen!2sie" width="100%" height="100%" style="border:1px solid lightgray; box-shadow: 10px 10px 20px rgba(248, 137, 0, 0.1);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-          </div>
-      </div>                                                                  
-  </div>
+    </div>
+</div>
 
+    <div>
+        <div class="container">
+
+            <div class="contact-details-grid">
+                                          
+              <div class="address-box">
+                  <div class="address-icon">
+                      <i class="fas fa-phone"></i>   
+                  </div>
+                  <div class="address-text" style="position: relative">
+                      <span>Phone: (EU)</span>
+                      <div class="contact-details-and-copy">
+                          <a id="euPhoneNumber">+353 1 605 4343</a>
+                          <img class="copyIcon" src="images/copy-icon.png" id="eu-Phone-Number-Copy" alt="Copy phone number">
+                          <span style="position: relative"> 
+                              <span id="copyMessage2" style="display: none">Copied!</span>
+                          </span>
+                      </div>
+                      
+                  </div>  
+              </div>
+              <div class="address-box">
+                  <div class="address-icon">
+                      <i class="fas fa-phone"></i>  
+                  </div>
+                  <div class="address-text" style="position: relative">
+                      <span>Phone: (US)</span>
+                      <div class="contact-details-and-copy">
+                          <a  id="usPhoneNumber">+1 646 893 0809</a>
+                          <img class="copyIcon" src="images/copy-icon.png" id="us-Phone-Number-copy"alt="Copy phone number">
+                          <span style="position: relative"> 
+                              <span id="copyMessage3" style="display: none">Copied!</span>
+                          </span>
+                      </div>
+                  </div>
+              </div>
+              <div class="address-box">
+                  <div class="address-icon">
+                    <i class="fas fa-envelope"></i>                                        
+                  </div>
+                  <div class="address-text" style="position: relative">
+                      <span>Email:</span>
+                      <div class="contact-details-and-copy">
+                          <a  id="email-link" href="mailto:support@pledgebear.com">support@pledgebear.com</a>
+                          <img class="copyIcon" src="images/copy-icon.png" id="email-link-copy" alt="Copy email address">
+                          <span style="position: relative"> 
+                              <span id="copyMessage" style="display: none">Copied!</span>
+                          </span>
+                      </div>
+                  </div>
+              </div>
+          </div> 
+      
+          <br>
+          <br>
+      
+          <div class="maps-location-grid">
+            <div>
+                <div class="contact-address-text">    
+                    <div>EU Office:</div>
+                    <div class="contact-details-and-copy">
+                        <a id="eu-office">IFSC House, Custom House Quay, Dublin, Ireland, D01 R2P9</a>
+                        <img class="copyIcon" src="images/copy-icon.png" id="eu-office-copy" alt="Copy EU Office address">
+                        <span style="position: relative"> 
+                            <span id="copyMessage4" style="display: none">Copied!</span>
+                        </span>
+                    </div>
+                </div>
+                <div>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2381.7027903088483!2d-6.2550661067254705!3d53.348576303115266!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48670e8e5058f209%3A0xd708581f430ba82c!2sFlip-Pay!5e0!3m2!1sen!2sie!4v1736946812773!5m2!1sen!2sie" width="100%" height="100%" style="border:1px solid lightgray; box-shadow: 10px 10px 20px rgba(248, 137, 0, 0.1);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+            <div>
+                <div class="contact-address-text" >
+                    <div>US Office:</div>
+                    <div class="contact-details-and-copy">
+                        <a id="us-office">183 Madison Ave, Suite 1101, New York, NY 10016, United States</a>
+                        <img class="copyIcon" src="images/copy-icon.png" id="us-office-copy" alt="Copy US Office address">
+                        <span style="position: relative"> 
+                            <span id="copyMessage5" style="display: none">Copied!</span>
+                        </span>
+                    </div>
+                    
+                </div>
+                <div>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.8127810586752!2d-73.9877930235852!3d40.74414493564653!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a7b620fb63%3A0x9e3bc7ad0a467c72!2s83%20Madison%20Ave%2C%20New%20York%2C%20NY%2010016%2C%20USA!5e0!3m2!1sen!2sie!4v1736946888696!5m2!1sen!2sie" width="100%" height="100%" style="border:1px solid lightgray; box-shadow: 10px 10px 20px rgba(248, 137, 0, 0.1);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>                                                                  
+        </div>
+      
+          </div>
+    </div>
     </div>
   
-
-    <div>
-      <form id="contactForm">
-        <input type="text" name="name" placeholder="Seu nome" required />
-        <input type="email" name="email" placeholder="Seu email" required />
-        <textarea name="message" placeholder="Mensagem" required></textarea>
-        <button type="submit">Enviar</button>
-      </form>
-      
-    </div>
   </section>
 
+  
 
-<!-- Footer -->
-<footer class="footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <div class="footer-logo">
-          <img src="images/logo-white.png" alt="PledgeBear Logo">
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="images/logo-white.png" alt="PledgeBear Logo">
+          </div>
+          <p>PledgeBear helps creators and causes accept contributions from their supporters in a friendly, simple way.</p>
+          <div class="social-links">
+              <a href="https://x.com/Pledgebear" target="_blank"><i class="fab fa-x-twitter"></i></a>
+              <a href="https://www.instagram.com/pledgebear/?utm_source=ig_web_button_share_sheet" target="_blank"><i class="fab fa-instagram"></i></a>
+              <a href="https://www.facebook.com/profile.php?id=61575692015755" target="_blank"><i class="fab fa-facebook"></i></a>
+              <a href="https://www.linkedin.com/company/pledge-bear/?lipi=urn%3Ali%3Apage%3Ad_flagship3_search_srp_companies%3BwJSTuphZQtqk4nyOpZSG6A%3D%3D" target="_blank"><i class="fab fa-linkedin"></i></a>
+              <a href="https://bsky.app/profile/pledgebear.bsky.social" target="_blank"><i class="fa-brands fa-bluesky"></i></a>
+          </div>
+          
         </div>
-        <p>PledgeBear helps creators and causes accept contributions from their supporters in a friendly, simple way.</p>
-        <div class="social-links">
-            <a href="https://x.com/Pledgebear" target="_blank"><i class="fab fa-x-twitter"></i></a>
-            <a href="https://www.instagram.com/pledgebear/?utm_source=ig_web_button_share_sheet" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.facebook.com/profile.php?id=61575692015755" target="_blank"><i class="fab fa-facebook"></i></a>
-            <a href="https://www.linkedin.com/company/pledge-bear/?lipi=urn%3Ali%3Apage%3Ad_flagship3_search_srp_companies%3BwJSTuphZQtqk4nyOpZSG6A%3D%3D" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="https://bsky.app/profile/pledgebear.bsky.social" target="_blank"><i class="fa-brands fa-bluesky"></i></a>
+
+        
+        <div class="footer-address">
+          <h4>Contact Info</h4>
+            <div>
+              <p>International Micro Payment Ventures Ltd, IFSC House, Custom House Quay, Dublin, Ireland, D01 R2P9</p>
+            </div>
+            <div class="footer-certifications">
+              <img src="images/ISO.webp" alt="ISO 27001 certification logo">
+              <img src="images/SOC.webp" alt="SOC 2 compliance logo">
+              <img src="images/GDPR.webp" alt="GDPR compliance certification logo">
+              <img src="images/pci.webp" alt="PCI DSS compliance certification logo">
+            </div>
+        </div>
+
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a onclick="scrollToSection('how-it-works')">How It Works</a></li>
+            <li><a onclick="scrollToSection('features')">Features</a></li>
+            <li><a onclick="scrollToSection('testimonials')">Testimonials</a></li>
+          </ul>
         </div>
         
+        <div class="footer-links">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="terms-and-conditions.html">Terms and Conditions</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
       </div>
-
-      
-      <div class="footer-address">
-        <h4>Contact Info</h4>
-          <div>
-            <p>International Micro Payment Ventures Ltd, IFSC House, Custom House Quay, Dublin, Ireland, D01 R2P9</p>
-          </div>
-          <div class="footer-certifications">
-            <img src="images/ISO.webp" alt="ISO 27001 certification logo">
-            <img src="images/SOC.webp" alt="SOC 2 compliance logo">
-            <img src="images/GDPR.webp" alt="GDPR compliance certification logo">
-            <img src="images/pci.webp" alt="PCI DSS compliance certification logo">
-          </div>
+      <div>
+        
       </div>
-
-      <div class="footer-links">
-        <h4>Quick Links</h4>
-        <ul>
-          <li><a href="faq.html">FAQ</a></li>
-          <li><a onclick="scrollToSection('how-it-works')">How It Works</a></li>
-          <li><a onclick="scrollToSection('features')">Features</a></li>
-          <li><a onclick="scrollToSection('testimonials')">Testimonials</a></li>
-        </ul>
-      </div>
-      
-      <div class="footer-links">
-        <h4>Support</h4>
-        <ul>
-          <li><a href="contact.html">Contact Us</a></li>
-          <li><a href="terms-and-conditions.html">Terms and Conditions</a></li>
-          <li><a href="privacy-policy.html">Privacy Policy</a></li>
-        </ul>
+      <div class="footer-bottom">
+        <div class="powered-by-fp">
+          <p>© 2025 PledgeBear.com • Powered by <a href="https://www.flip-pay.com/" target="_blank">Flip-Pay</a>. All rights reserved.</p>
+          <a href="https://www.flip-pay.com/" target="_blank"><img src="images/logo-light.png" alt="Flip-Pay Logo"></a>
+        </div>
+        <div class="certifications">
+          <span><a href="privacy-policy.html">Privacy Policy</a></span>
+          <span>•</span>
+          <span><a href="terms-and-conditions.html">Terms and Conditions</a></span>
+        </div>
       </div>
     </div>
-    <div>
-      
-    </div>
-    <div class="footer-bottom">
-      <div class="powered-by-fp">
-        <p>© 2025 PledgeBear.com • Powered by <a href="https://www.flip-pay.com/" target="_blank">Flip-Pay</a>. All rights reserved.</p>
-        <a href="https://www.flip-pay.com/" target="_blank"><img src="images/logo-light.png" alt="Flip-Pay Logo"></a>
-      </div>
-      <div class="certifications">
-        <span><a href="privacy-policy.html">Privacy Policy</a></span>
-        <span>•</span>
-        <span><a href="terms-and-conditions.html">Terms and Conditions</a></span>
-      </div>
-    </div>
-  </div>
-</footer>
+  </footer>
 
-<script src="index-script.js"></script>
+  <script src="index-script.js"></script>
+  <script src="contact-form.js"></script>
 </body>
 </html>
