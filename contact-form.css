@@ -1,3 +1,12 @@
+:root {
+    --color-navy: #1D3557;
+    --color-orange: #FF8243;
+    --color-pink: #FFB6B9;
+    --color-light-bg: #fdfaf6;
+    --color-cream: #FFE8D6;
+    --font-nunito: 'Nunito', sans-serif;
+  }
+
 .form-and-contact-details-wrap {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -11,6 +20,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    margin: auto;
 }
 .contact-details-container {
     padding: 80px 0;
@@ -31,7 +41,6 @@
   .form-container h2 {
     text-align: center;
     margin-bottom: 30px;
-    color: #333;
   }
   
   .form-group {
@@ -42,7 +51,6 @@
     display: block;
     margin-bottom: 8px;
     font-weight: 500;
-    color: #555;
   }
   
   .form-group input,
@@ -58,7 +66,7 @@
   .form-group input:focus,
   .form-group textarea:focus {
     outline: none;
-    border-color: #f88900;
+    border-color: var(--color-orange);
   }
   
   .form-group textarea {
@@ -95,10 +103,31 @@
     color: #721c24;
     border: 1px solid #f5c6cb;
   }
-  
+  @media (max-width: 1220px) {
+    .contact-details-wrap {
+        padding: 0px 30px 0px 0px;
+    }
+    .contact-details-grid {
+        grid-template-columns: 1fr 1fr;
+        margin: 0;
+        gap: 20px;
+    }
+  }
   @media (max-width: 768px) {
     .form-container {
       padding: 20px;
-      margin: 0 15px;
+    }
+    .form-and-contact-details-wrap {
+        grid-template-columns: 1fr;
+    }
+    .contact-details-wrap {
+        padding: 20px;
+    }
+    .contact-form-section {
+        padding: 20px;
+    }
+    .contact-details-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
     }
   } 
