@@ -901,10 +901,6 @@ img {
 }
 
 .footer-logo {
-  display: grid;
-  gap: 30px;
-  grid-template-columns: 1fr 1fr;
-  width: 400px;
   margin-bottom: 15px;
   align-items: center;
 }
@@ -920,6 +916,8 @@ img {
 .footer-certifications {
   display: flex;
   gap: 10px;
+  justify-content: center;
+  margin-top: 15px;
 }
 .footer-certifications img {
   width: 40px;
@@ -928,6 +926,7 @@ img {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  text-align: center;
 }
 .footer-address h4 {
   margin-bottom: 16px;
@@ -1153,17 +1152,21 @@ img {
   .testimonial-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  
   .footer-grid {
-    grid-template-columns: 2fr 2fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 60px;
   }
-  
   .footer-brand,
   .footer-links h4,
   .footer-links ul {
     text-align: left;
   }
-  
+  .footer-address {
+    text-align: start;
+  }
+  .footer-certifications {
+    justify-content: left;
+  }
   .social-links {
     justify-content: flex-start;
   }
@@ -1197,6 +1200,9 @@ img {
   }
   .steps {
     grid-template-columns: repeat(4, 1fr);
+  }
+  .footer-grid {
+    grid-template-columns: 2fr 2fr 1fr 1fr;
   }
 }
 
